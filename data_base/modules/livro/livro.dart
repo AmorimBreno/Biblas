@@ -9,10 +9,11 @@ class Livro {
   final int lancamento; //Ano de lançamento do livro
   final String sinopse; //Sinopse do livro
   final String edicao; //Edição do livro
+  final List<String> tags;
 
   String RAultimoAluno = "Nenhum"; //RA do último aluno que pegou o livro
 
   //construtor
-  Livro(String this.titulo, String this.codigo, String this.autor,
-      int this.lancamento, String this.sinopse, int this.edicao);
+  Livro(this.titulo, this.codigo, this.autor, this.lancamento, this.sinopse,
+      this.edicao, this.tags);
 }
