@@ -3,14 +3,16 @@
  * Possui a função de atualizar os dados e atualizar o último aluno que pegou o livro
  */
 class Livro {
-  String titulo; //Titulo do livro
-
-  String codigo; //Código do livro
-
-  String autor; //Autor do livro
+  final String titulo; //Titulo do livro
+  final String codigo; //Código do livro
+  final String autor; //Autor do livro
+  final int lancamento; //Ano de lançamento do livro
+  final String sinopse; //Sinopse do livro
+  final String edicao; //Edição do livro
 
   String RAultimoAluno = "Nenhum"; //RA do último aluno que pegou o livro
 
   //construtor
-  Livro(String this.titulo, String this.codigo, String this.autor);
+  Livro(String this.titulo, String this.codigo, String this.autor,
+      int this.lancamento, String this.sinopse, int this.edicao);
 }
