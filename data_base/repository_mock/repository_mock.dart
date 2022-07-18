@@ -1,13 +1,5 @@
 import '../modules/livro/livro.dart';
 
-/*
-  final String titulo; //Titulo do livro
-  final String codigo; //Código do livro
-  final String autor; //Autor do livro
-  final int lancamento; //Ano de lançamento do livro
-  final String sinopse; //Sinopse do livro
-  final int edicao; //Edi
-*/
 class RepositoryMock {
   List<Livro> livros = [
     Livro(
@@ -16,7 +8,7 @@ class RepositoryMock {
         "Nilo Ney Corinho Menezes",
         2010,
         "Este livro é orientado ao iniciante em programação. Os conceitos básicos de programação, como expressões, variáveis, repetições, decisões, listas, dicionários, conjuntos, funções, arquivos, classes, objetos e banco de dados com SQLite 3 são apresentados um a um com exemplos e exercícios. A obra visa a explorar a programação de computadores como ferramenta do dia a dia. Ela pode ser lida durante um curso de introdução à programação de computadores e usada como guia de estudo para autodidatas. Para aproveitamento pleno do conteúdo, apenas conhecimentos básicos de informática, como digitar textos, abrir e salvar arquivos, são suficientes. Todo software utilizado no livro pode ser baixado gratuitamente, sendo executado em Windows, Linux e Mac OS X. Embora a linguagem Python (versão +3.7) seja muito poderosa e repleta de recursos modernos de programação, este livro não pretende ensinar a linguagem em si, mas ensinar a programar. Alguns recursos da linguagem não foram utilizados para privilegiar os exercícios de lógica de programação e oferecer uma preparação mais ampla ao leitor para outras linguagens. Essa escolha não impediu a apresentação de recursos poderosos da linguagem, e, embora o livro não seja fundamentalmente uma obra de referência, o leitor encontrará várias notas e explicações de características específicas do Python, além da lógica de programação.",
-        "Segunda(Junho/2014)",
+        "Segunda (Junho/2014)",
         ["ciclo básico", "programação", "engenharia", "computação"]),
     Livro(
         "Resistência dos Materiais",
@@ -33,7 +25,7 @@ class RepositoryMock {
         2013,
         'Cálculo foi escrito originalmente na forma de um curso. Sempre dando ênfase à compreensão dos conceitos, o autor inicia a obra oferecendo uma visão geral do assunto para, em seguida, apresentá-lo em detalhes, por meio da formulação de problemas, exercícios, tabelas e gráficos. A obra está dividida em dois volumes (Vol. 1 - capítulos 1 a 8 e Vol. 2 - capítulos 9 a 17). A 7ª edição de Cálculo traz diversas inovações em relação à edição anterior. Alguns tópicos foram reescritos para proporcionar clareza e motivação; novos exemplos foram adicionados; soluções de parte dos exemplos foram ampliadas; dados de exemplos e exercícios readequados. Revista e atualizada, a obra mantém o espírito das edições anteriores, apresentando exercícios graduados, com progressão cuidadosamente planejada dos conceitos básicos até problemas complexos e desafiadores. Neste volume: Funções e Modelos, Limites e Derivadas, Regras de Derivação, Aplicações de Derivação, Integrais, Aplicações de Integração, Técnicas de Integração e Mais Aplicações de Integração',
         'Tradução da Sétima Edição Norte Americana',
-        ['#ciclobásico', '#cálculo', '#engenharia']),
+        ['ciclobásico', 'cálculo', 'engenharia']),
     Livro(
         'A Estatística Básica e sua Prática',
         'AM001',
@@ -41,7 +33,7 @@ class RepositoryMock {
         2017,
         'A nova e aprimorada edição de A Estatística Básica e sua Prática tem como objetivo auxiliar os estudantes a desenvolver os procedimentos habituais na área e a seguir o raciocínio estatístico, tanto no meio acadêmico, como no mercado de trabalho. Ao aliar o conhecimento técnico à prática da resolução de problemas, o livro promove a autonomia e o olhar criativo dos estudantes em seu primeiro contato com a Estatística, formando uma base sólida para os futuros profissionais e pesquisadores. O texto se destaca pela versatilidade do conteúdo e pela possibilidade de ser utilizado juntamente com qualquer tipo de tecnologia para produção de cálculos e gráficos. Com linguagem moderna e acessível, esta obra oferece ao leitor um caminho para um estudo direcionado e bem-sucedido do tema. Como destaque, a obra traz o acesso gratuito a um conjunto de videoaulas exclusivas, com tópicos essenciais de Estatística.',
         'Sétima',
-        ['#estatísticas', '#administração']),
+        ['estatísticas', 'administração']),
     Livro(
         "A Nova Contabilidade: Convergência ao Padrão Internacional",
         "AM002",
