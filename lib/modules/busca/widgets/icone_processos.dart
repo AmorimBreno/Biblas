@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_biblas/modules/busca/pages/processos.dart';
+import 'package:projeto_biblas/modules/meus_processos/pages/processos.dart';
 
 class IconeProcessos extends StatelessWidget {
   const IconeProcessos({Key? key}) : super(key: key);
