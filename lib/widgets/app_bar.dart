@@ -19,22 +19,24 @@ class AppBarMaua extends StatelessWidget {
                 width: 128,
                 image: AssetImage(pathLogoMauaNet),
               ),
-              const Text(style: TextStyle(), "XXXXXXXXXX - XXXXXX@hotmail.com"),
-              const Text("RA: XX.XXXXX-X | Celular: (XX)XXXXX-XXXX"),
-              const Text("| Alterar Informações | | Sair |")
+              Text(
+                  style: TextStyle(fontSize: 8),
+                  "XXXXXXXXXX - XXXXXX@hotmail.com"),
+              Text(
+                  style: TextStyle(fontSize: 8),
+                  "RA: XX.XXXXX-X | Celular: (XX)XXXXX-XXXX"),
+              Text(
+                  style: TextStyle(fontSize: 8),
+                  "| Alterar Informações | | Sair |")
             ],
           ),
         ],
         leading: Padding(
           padding: const EdgeInsets.only(left: 8.0),
-          child: Container(
+          child: Image(
             height: 128,
-            width: 128,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  filterQuality: FilterQuality.high,
-                  image: AssetImage(pathLogoMaua)),
-            ),
+            width: 256,
+            image: AssetImage(pathLogoMaua),
           ),
         ),
 
