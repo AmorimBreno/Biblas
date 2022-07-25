@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/modules/busca/data_base/menu_data.dart';
+import 'package:projeto_biblas/modules/busca/pages/busca.dart';
 
 class MenuCascata extends StatefulWidget {
   const MenuCascata({Key? key}) : super(key: key);
@@ -10,6 +12,29 @@ class MenuCascata extends StatefulWidget {
 class _MenuCascataState extends State<MenuCascata> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return ListView(
+      children: cursosData.map(buildTile).toList(),
+    );
+  }
+
+  Widget buildTile(ConstrutorBlocos bloco, {double leftPadding = 16}) {
+    if (bloco.blocos.isEmpty) {
+      return ListTile(
+        contentPadding: EdgeInsets.only(left: leftPadding),
+        title: Text(bloco.titulo),
+        onTap: () =>
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return const BuscaPage();
+        })),
+      );
+    } else {
+      return ExpansionTile(
+        tilePadding: EdgeInsets.only(left: leftPadding),
+        title: Text(bloco.titulo),
+        children: bloco.blocos
+            .map((bloco) => buildTile(bloco, leftPadding: 16 + leftPadding))
+            .toList(),
+      );
+    }
   }
 }
