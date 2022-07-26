@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
 import '../widgets/capaLivro_widget.dart';
@@ -22,6 +23,8 @@ class BuscaPage extends StatelessWidget {
         children: [
           const AppBarMaua(),
           CapaLivro(livro: livro),
+          const SearchBar(),
+          
         ],
       ),
       backgroundColor: Colors.white,

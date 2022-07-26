@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatelessWidget {
+class SearchBar extends StatefulWidget {
   const SearchBar({Key? key}) : super(key: key);
+
+  @override
+  InputPesquisa createState() => new InputPesquisa();
+}
+
+class InputPesquisa extends State<SearchBar> {
+  final _textControler = TextEditingController();
+  String input = '';
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +23,12 @@ class SearchBar extends StatelessWidget {
         cursorWidth: 1,
         textInputAction: TextInputAction.done,
         keyboardType: TextInputType.name,
+        controller: _textControler,
+        onSubmitted: (String str) {
+          setState(() {
+            input = str;
+          });
+        },
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.lightBlue,
