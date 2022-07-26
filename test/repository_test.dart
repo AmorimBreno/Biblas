@@ -24,6 +24,10 @@ void main() {
   /*test("teste _nomeAutor", () {
     expect(repository.nomeAutor("João Vitor Choueri Branco"), "Branco J V C");
   });*/
+
+  test("teste pegarLivroPorMateria", () {
+    expect(repository.pegarLivroPorMateria("cálculo"), [repository.livros[2]]);
+  });
   test("teste pegarLivroPorAutor", () {
     expect(repository.pegarLivroPorAutor("Nilo Ney Corinho Menezes"),
         [repository.livros[0]]);
