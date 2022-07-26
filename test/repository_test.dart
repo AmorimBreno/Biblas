@@ -5,6 +5,8 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'dart:math';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:projeto_biblas/database/repository_mock/LivrosRepository.dart';
 
@@ -22,4 +24,23 @@ void main() {
   /*test("teste _nomeAutor", () {
     expect(repository.nomeAutor("João Vitor Choueri Branco"), "Branco J V C");
   });*/
+  test("teste pegarLivroPorAutor", () {
+    expect(repository.pegarLivroPorAutor("Nilo Ney Corinho Menezes"),
+        [repository.livros[0]]);
+    expect(
+        repository.pegarLivroPorAutor("Menezes N N C"), [repository.livros[0]]);
+    expect(repository.pegarLivroPorAutor("Menezes N. N. C"),
+        [repository.livros[0]]);
+    expect(repository.pegarLivroPorAutor("Eh O Brancas"), []);
+    expect(repository.pegarLivroPorAutor("Nilo Ney"), [repository.livros[0]]);
+  });
+
+  test("teste pegarLivroPorTitulo", () {
+    expect(
+        repository.pegarLivroPorTitulo("Introdução à Programação com Python"),
+        [repository.livros[0]]);
+    expect(repository.pegarLivroPorTitulo("dos"),
+        [repository.livros[1], repository.livros[5]]);
+    expect(repository.pegarLivroPorTitulo("I am Brancas 😎"), []);
+  });
 }

@@ -48,6 +48,15 @@ class LivrosRepository {
         "Segunda",
         ["administração", "economia"],
         'assets/images/a_nova_contabilidade_convergencia_ao_padrao_internacional.jpg'),
+    Livro(
+        "Mecânica dos solos e suas aplicações",
+        "EM001",
+        ["Homero Pinto Caputo"],
+        1973,
+        "Acidentes ocorridos em grandes obras da engenharia como deslizamentos durante a construção do Canal do Panamá ? deixaram clara a percepção inadequada dos princípios de gestão do solo, outrora vigentes na engenharia. Por outro lado, a falta de conhecimento impedia que uma nova direção fosse adotada. Desses desafios e do aprendizado nasceu uma nova orientação do estudo dos solos, que a 7ª edição de Mecânica dos Solos e Suas Aplicações reúne de forma consistente e atualizada.",
+        "Sétima",
+        ["engenharia", "civil", "geografia"],
+        "assets/images/mecanica_dos_solos_e_suas_aplicacoes.jpg")
   ];
 
   //Construtor
@@ -55,7 +64,7 @@ class LivrosRepository {
 
   // Métodos
 
-  String nomeAutor(String nome) {
+  String _nomeAutor(String nome) {
     // ignore: non_constant_identifier_names
     List<String> nome_autor = nome.split(' ');
     for (int i = 0; i < nome_autor.length - 1; i++) {
@@ -67,6 +76,25 @@ class LivrosRepository {
       nome_autor_abnt = '$nome_autor_abnt ${nome_autor[i]}';
     }
     return nome_autor_abnt;
+  }
+
+  String _tirarPontuacao(String str) {
+    List<String> pontuacoes = [
+      ',',
+      ':',
+      '.',
+      '!',
+      '?',
+      ';',
+      '(',
+      ')',
+      '"',
+      "'"
+    ];
+    for (String pontuacao in pontuacoes) {
+      str = str.replaceAll(pontuacao, '');
+    }
+    return str;
   }
 
   List<Livro> pegarTodosOsLivros() {
@@ -93,5 +121,53 @@ class LivrosRepository {
       }
     }
     return livrosDaMateria;
+  }
+
+  List<Livro> pegarLivroPorAutor(String autor) {
+    List<Livro> livrosDoAutor = [];
+    String autorSemPonto = _tirarPontuacao(autor);
+    if (autorSemPonto.split(' ')[autorSemPonto.split(' ').length - 1].length ==
+        1) {
+      for (Livro livro in livros) {
+        for (String autorLivro in livro.autor) {
+          if (_nomeAutor(autorLivro).toLowerCase() ==
+              autorSemPonto.toLowerCase()) {
+            livrosDoAutor.insert(livrosDoAutor.length, livro);
+          }
+        }
+      }
+    } else {
+      for (Livro livro in livros) {
+        for (String autorLivro in livro.autor) {
+          bool checker = true;
+          for (String parteNome in autorSemPonto.split(' ')) {
+            if (!autorLivro.toLowerCase().contains(parteNome.toLowerCase())) {
+              checker = false;
+            }
+          }
+          if (checker == true) {
+            livrosDoAutor.insert(livrosDoAutor.length, livro);
+          }
+        }
+      }
+    }
+    return livrosDoAutor;
+  } //Final da Classezona
+
+  List<Livro> pegarLivroPorTitulo(String nome) {
+    List<Livro> livrosComTitulo = [];
+    nome = _tirarPontuacao(nome);
+    for (Livro livro in livros) {
+      bool checker = true;
+      for (String parteNome in nome.split(' ')) {
+        if (!livro.titulo.toLowerCase().contains(parteNome.toLowerCase())) {
+          checker = false;
+        }
+      }
+      if (checker == true) {
+        livrosComTitulo.insert(livrosComTitulo.length, livro);
+      }
+    }
+    return livrosComTitulo;
   }
 }
