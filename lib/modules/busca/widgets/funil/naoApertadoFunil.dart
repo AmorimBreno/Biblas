@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/op%C3%A7%C3%B5esFunil.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
 

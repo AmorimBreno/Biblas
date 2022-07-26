@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
+=======
+import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
+import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
+>>>>>>> Stashed changes
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
 import '../widgets/capaLivro_widget.dart';
@@ -21,6 +26,13 @@ class BuscaPage extends StatelessWidget {
       body: Column(
         children: [
           const AppBarMaua(),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SearchBar(),
+              const BotaoFunilWidget(),
+            ],
+          ),
           CapaLivro(livro: livro),
         ],
       ),
