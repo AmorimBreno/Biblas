@@ -5,13 +5,11 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'dart:math';
-
 import 'package:flutter_test/flutter_test.dart';
-import 'package:projeto_biblas/database/repository_mock/LivrosRepository.dart';
+import 'package:projeto_biblas/database/repository_mock/repository_mock.dart';
 
 void main() {
-  LivrosRepository repository = LivrosRepository();
+  RepositoryMock repository = RepositoryMock();
   test("teste pegarLivroPorTag", () {
     expect(repository.pegarLivroPorTag(["engenharia"]),
         [repository.livros[0], repository.livros[1], repository.livros[2]]);
