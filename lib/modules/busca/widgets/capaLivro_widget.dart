@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import '../../../data_base/modules/livro/livro.dart';
+import '../../../database/modules/livro/livro.dart';
 
 class CapaLivro extends StatelessWidget {
   final Livro livro;

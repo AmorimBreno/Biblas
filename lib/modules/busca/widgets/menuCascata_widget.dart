@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_biblas/modules/busca/data_base/menu_data.dart';
-import 'package:projeto_biblas/modules/busca/pages/busca.dart';
+import 'package:projeto_biblas/modules/busca/pages/busca_pagina.dart';
+
+import '../../../database/repository_mock/CascataRepository.dart';
 
 class MenuCascata extends StatefulWidget {
   const MenuCascata({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _MenuCascataState extends State<MenuCascata> {
         title: Text(bloco.titulo),
         onTap: () =>
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const BuscaPage();
+          return BuscaPage();
         })),
       );
     } else {

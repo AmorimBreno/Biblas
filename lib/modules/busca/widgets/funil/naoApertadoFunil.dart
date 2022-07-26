@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
-import 'package:projeto_biblas/modules/widgets/Funil/OptionsFunil.dart';
-import 'package:projeto_biblas/modules/widgets/Funil/funil.dart';
+import 'package:projeto_biblas/modules/busca/widgets/funil/op%C3%A7%C3%B5esFunil.dart';
+import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
 
-class non_pressed_funil extends State<FunilButton> {
+class NaoApertadoFunil extends State<BotaoFunilWidget> {
   final color = Colors.black;
   final icon = Icons.menu;
 
