@@ -1,12 +1,4 @@
-class ConstrutorBlocos {
-  final String titulo;
-  final List<ConstrutorBlocos> blocos;
-
-  const ConstrutorBlocos({
-    required this.titulo,
-    this.blocos = const [],
-  });
-}
+import 'package:projeto_biblas/database/modules/menu_cascata/construtorBlocos.dart';
 
 final cursosData = <ConstrutorBlocos>[
   const ConstrutorBlocos(titulo: 'Engenharia', blocos: [
