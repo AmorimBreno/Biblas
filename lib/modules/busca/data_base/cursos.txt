@@ -1,0 +1,45 @@
+
+## 'Administração'
+
+## 'Ciência da computação'
+
+## 'Design'
+
+## 'Engenharia' 
+'Ciclo Básico'
+'Algoritmos e Programação'
+'Cálculo Diferencial e Integral I'
+'Desenho'
+'Física I'
+'Fundamentos de Engenharia'
+'Química Geral'
+'Vetores, Curvas e Superfícies'
+
+'Alimentos'
+
+'Civil'
+
+'Computação'
+'Cálculo Diferencial e Integral II'
+'Estrutura de Dados e Técnicas de Programação'
+'Fenômenos de Transporte'
+'Física II'
+'Fundamentos de Circuitos Digitais'
+'Fundamentos de Circuitos Analógicos'
+'Matemática Computacional'
+'Mecânica Geral'
+'Resistência dos Materiais'
+
+'Controle e Automação'
+'Eletrônica'
+'Elétrica'
+'Mecânica'
+'Produção'
+'Química'
+
+## 'Sistema de Informação'
+'Banco de Dados Relacionais'
+'Lógica de Programação'
+'Modelagem Orientada a Objetos'
+'Programação Orientada a Objetos'
+'Projeto Integrado Interdisciplinar'

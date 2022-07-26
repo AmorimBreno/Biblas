@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:projeto_biblas/widgets/app_bar_widget.dart';
-
+import 'package:projeto_biblas/modules/widgets/search_bar.dart';
 import '../../../data_base/modules/livro/livro.dart';
 import '../widgets/capa_livro_widget.dart';
 
@@ -29,5 +26,7 @@ class BuscaPage extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
     );
+    return Scaffold(body: Center(child: Column(children: [FunilButton()])));
+
   }
 }
