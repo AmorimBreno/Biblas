@@ -50,7 +50,3 @@ class InputPesquisa extends State<SearchBar> {
     );
   }
 }
-
-String pesquisa(){
-  return 
-}
