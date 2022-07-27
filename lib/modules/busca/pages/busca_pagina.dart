@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
-=======
+
 import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
->>>>>>> Stashed changes
+
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
 import '../widgets/capaLivro_widget.dart';
+import '../widgets/iconeProcessos_widget.dart';
 
 class BuscaPage extends StatelessWidget {
   BuscaPage({Key? key}) : super(key: key);
@@ -27,13 +27,30 @@ class BuscaPage extends StatelessWidget {
         children: [
           const AppBarMaua(),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SearchBar(),
-              const BotaoFunilWidget(),
-            ],
-          ),
-          CapaLivro(livro: livro),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width / 2 - 250),
+                  child: Stack(
+                    children: [
+                      const SearchBarWidget(),
+                      Container(
+                        margin: const EdgeInsets.only(left: 432),
+                        child: const Padding(
+                          padding: EdgeInsets.only(top: 16.0),
+                          child: BotaoFunilWidget(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                    margin: const EdgeInsets.only(right: 8),
+                    child: const IconeProcessosWidget())
+              ]),
+          Row(children: const [Text("Hello")]),
         ],
       ),
       backgroundColor: Colors.white,
