@@ -19,8 +19,13 @@ class BotoesLivros extends StatelessWidget {
     return Container(
       height: altura,
       width: largura,
-      color: Colors.blue[700],
-      child: Center(child: Text(texto)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(2),
+        color: Color.fromARGB(255, 2, 21, 54),
+      ),
+      child: Center(
+          child:
+              Text(texto, style: TextStyle(color: Colors.white, fontSize: 20))),
     );
   }
 }
