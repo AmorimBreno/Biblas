@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/shared/themes/themes_colors.dart';
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class SearchBarWidget extends StatelessWidget {
         keyboardType: TextInputType.name,
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.lightBlue,
+          fillColor: AppColors.greyblue,
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(32),
               borderSide: const BorderSide(color: Colors.black)),
