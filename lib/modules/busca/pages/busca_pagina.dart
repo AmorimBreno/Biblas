@@ -23,40 +23,24 @@ class BuscaPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 400,
                 height: 600,
+                child: Container(
+                  color: Colors.black,
+                ),
               ),
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width / 3),
-                          child: Stack(
-                            children: [
-                              const SearchBarWidget(),
-                              Container(
-                                margin: EdgeInsets.only(
-                                    left: MediaQuery.of(context).size.width /
-                                            3 -
-                                        MediaQuery.of(context).size.width / 15),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 12.0),
-                                  child: Container(
-                                      margin: const EdgeInsets.only(right: 12),
-                                      child: const BotaoFunilWidget()),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const IconeProcessosWidget()
-                      ]),
+                  const SearchBarWidget(),
+                  Container(
+                    margin: const EdgeInsets.only(left: 520),
+                    child: const Padding(
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: BotaoFunilWidget(),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 64.0),
                     child: Wrap(
@@ -66,6 +50,9 @@ class BuscaPage extends StatelessWidget {
                   ),
                 ],
               ),
+              Container(
+                  margin: const EdgeInsets.only(right: 20),
+                  child: const IconeProcessosWidget())
             ],
           ),
         ],
