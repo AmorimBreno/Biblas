@@ -10,22 +10,25 @@ class CapaLivroWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset(
-          livro.imagemLivro,
-          height: 198,
-          width: 128,
-          filterQuality: FilterQuality.high,
-        ),
-        SizedBox(
-          width: 168,
-          child: Text(
-            livro.titulo,
+    return Container(
+      margin: const EdgeInsets.only(right: 64),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            livro.imagemLivro,
+            height: 198,
+            width: 128,
+            filterQuality: FilterQuality.high,
           ),
-        )
-      ],
+          SizedBox(
+            width: 128,
+            child: Text(
+              livro.titulo,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
