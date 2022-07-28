@@ -19,7 +19,7 @@ class ProcessosPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text('Processos:',
                     style:
                         TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),

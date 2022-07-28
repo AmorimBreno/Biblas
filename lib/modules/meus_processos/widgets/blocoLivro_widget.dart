@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/database/modules/livro/livro.dart';
+import 'package:projeto_biblas/database/repository_mock/LivrosRepository.dart';
 import 'package:projeto_biblas/modules/meus_processos/widgets/situacaoLivro_widget.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
@@ -9,8 +11,10 @@ class BlocoLivro extends StatelessWidget {
   final String codigoLivro;
   final String dataLimite;
   final String dataRetirada;
+  final List<Livro> teste = RepositoryMock().livros;
   final int situacaoLivro; // 0 EM POSSE, 1 DEVOLVIDO, -1 ATRASADO
-  const BlocoLivro(
+  
+  BlocoLivro(
       {Key? key,
       required this.caminhoImagem,
       required this.tituloLivro,
