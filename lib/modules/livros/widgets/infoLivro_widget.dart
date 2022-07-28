@@ -1,27 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/shared/themes/themes_colors.dart';
 
-class InfoLivrosWidget extends StatelessWidget {
-  const InfoLivrosWidget(
-      {Key? key,
-      required this.titulo,
-      required this.autor,
-      required this.codigo,
-      required this.edicao,
-      required this.imagem,
-      required this.lancamento,
-      required this.disponivel})
-      : super(key: key);
+import '../../../database/modules/livro/livro.dart';
 
-  final String titulo;
-  final String autor;
-  final String lancamento;
-  final String edicao;
-  final String codigo;
-  final String imagem;
-  // 1 para disponivel 0 para indisponivel
-  final int disponivel;
-  final String disponibilidade = "Disponível";
+class InfoLivrosWidget extends StatelessWidget {
+  InfoLivrosWidget({required this.livro});
+
+  Livro livro;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +36,7 @@ class InfoLivrosWidget extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(right: 72.0),
                           child: Text(
-                            titulo,
+                            livro.titulo,
                             style: TextStyle(
                                 fontSize: 14.4, fontWeight: FontWeight.bold),
                           ),
@@ -64,7 +49,7 @@ class InfoLivrosWidget extends StatelessWidget {
                             padding: const EdgeInsets.all(4.0),
                             child:
                                 //**************************CÓDIGO DO LIVRO*************************************
-                                Text(codigo,
+                                Text(livro.codigo,
                                     style: TextStyle(
                                         letterSpacing: 2,
                                         color: Colors.white,
@@ -75,7 +60,7 @@ class InfoLivrosWidget extends StatelessWidget {
                     ),
                     Text(
                       //************************AUTOR DO LIVRO***************************************
-                      autor,
+                      livro.autor,
                       style: TextStyle(
                           fontSize: 14.4, fontWeight: FontWeight.w100),
                     ),
@@ -88,7 +73,7 @@ class InfoLivrosWidget extends StatelessWidget {
                               children: <TextSpan>[
                             TextSpan(
                               // ******************************** LANÇAMENTO DO LIVRO ************************
-                              text: lancamento,
+                              text: livro.lancamento.toString(),
                               style: TextStyle(fontWeight: FontWeight.w100),
                             )
                           ])),
@@ -103,7 +88,7 @@ class InfoLivrosWidget extends StatelessWidget {
                               children: <TextSpan>[
                             TextSpan(
                               // ******************************** LANÇAMENTO DO LIVRO ************************
-                              text: edicao,
+                              text: livro.edicao,
                               style: TextStyle(fontWeight: FontWeight.w100),
                             )
                           ])),
@@ -123,7 +108,7 @@ class InfoLivrosWidget extends StatelessWidget {
                               children: <TextSpan>[
                             TextSpan(
                               // ******************************** LANÇAMENTO DO LIVRO ************************
-                              text: disponibilidade,
+                              text: "Disponível",
                               style: TextStyle(color: Colors.green),
                             )
                           ])),

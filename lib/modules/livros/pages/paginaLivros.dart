@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/database/repository_mock/LivrosRepository.dart';
 import 'package:projeto_biblas/modules/busca/widgets/botaoLivro_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/iconeProcessos_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.dart';
@@ -10,11 +11,15 @@ import 'package:projeto_biblas/modules/livros/widgets/resumoLivro_widget.dart';
 import 'package:projeto_biblas/modules/meus_processos/pages/processos_pagina.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
 
+import '../../../database/modules/livro/livro.dart';
+
 class PaginaLivros extends StatelessWidget {
   final double largura = 270;
   final double altura = 40;
 
-  const PaginaLivros({
+  Livro livro = RepositoryMock().livros[0];
+
+  PaginaLivros({
     Key? key,
   }) : super(key: key);
   @override
@@ -23,16 +28,10 @@ class PaginaLivros extends StatelessWidget {
         body: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
       const AppBarMaua(),
       const IconeProcessos(),
-      const Padding(
+      Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           child: InfoLivrosWidget(
-            titulo: "Introdução à Programação com Python",
-            edicao: "Segunda",
-            lancamento: "2010",
-            disponivel: 1,
-            autor: "Nilo Ney Cotinho Menezes",
-            codigo: '#3tl8b',
-            imagem: "imagem",
+            livro: livro,
           )),
       Padding(
         padding:
@@ -58,9 +57,11 @@ class PaginaLivros extends StatelessWidget {
           color: Colors.black,
         ),
       ),
-      const Padding(
+      Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Sinopse_Widget())
+          child: Sinopse_Widget(
+            livro: livro,
+          ))
     ]));
   }
 }
