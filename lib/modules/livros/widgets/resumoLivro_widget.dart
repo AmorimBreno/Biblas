@@ -11,8 +11,8 @@ class Sinopse_Widget extends StatelessWidget {
       height: 200,
       width: 600,
       child: ListView(children: [
-        const Text('Sinopse:', style: TextStyle(fontSize: 20)),
-        const Text("exemplo")
+        const Text('Sinopse:', style: TextStyle(fontSize: 22.5)),
+        const Text("exemplo", style: TextStyle(fontSize: 13.5))
       ]),
     );
   }

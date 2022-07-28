@@ -11,10 +11,12 @@ import 'package:projeto_biblas/modules/meus_processos/pages/processos_pagina.dar
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
 
 class PaginaLivros extends StatelessWidget {
-  final double largura = 250;
-  final double altura = 35;
+  final double largura = 270;
+  final double altura = 40;
 
-  const PaginaLivros({Key? key}) : super(key: key);
+  const PaginaLivros({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,15 @@ class PaginaLivros extends StatelessWidget {
       const IconeProcessos(),
       const Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: InfoLivrosWidget()),
+          child: InfoLivrosWidget(
+            titulo: "Introdução à Programação com Python",
+            edicao: "Segunda",
+            lancamento: "2010",
+            disponivel: 1,
+            autor: "Nilo Ney Cotinho Menezes",
+            codigo: '#3tl8b',
+            imagem: "imagem",
+          )),
       Padding(
         padding:
             const EdgeInsets.only(top: 28.0, left: 24, right: 24, bottom: 8),

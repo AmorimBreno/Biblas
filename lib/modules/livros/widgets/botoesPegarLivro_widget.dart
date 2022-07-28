@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projeto_biblas/shared/themes/themes_colors.dart';
 
 class BotoesLivros extends StatelessWidget {
   BotoesLivros(
@@ -21,11 +22,15 @@ class BotoesLivros extends StatelessWidget {
       width: largura,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(2),
-        color: Color.fromARGB(255, 2, 21, 54),
+        color: AppColors.darkblue,
       ),
       child: Center(
-          child:
-              Text(texto, style: TextStyle(color: Colors.white, fontSize: 20))),
+          child: Text(texto,
+              style: TextStyle(
+                  letterSpacing: 2,
+                  color: Colors.white,
+                  fontSize: 22.5,
+                  fontWeight: FontWeight.bold))),
     );
   }
 }
