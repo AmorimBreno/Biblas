@@ -3,6 +3,7 @@ import 'package:projeto_biblas/database/repository_mock/LivrosRepository.dart';
 
 import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
+import 'package:projeto_biblas/modules/busca/widgets/menuCascata_widget.dart';
 
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
@@ -16,19 +17,19 @@ class BuscaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //appBar: PreferredSize(preferredSize: Size(52, 64), child: AppBarMaua()),
-      body: Column(
+      body: ListView(
         children: [
           const AppBarMaua(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: 400,
-                height: 600,
-                child: Container(
-                  color: Colors.black,
-                ),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                width: 500,
+                height: 1000,
+                child: const MenuCascataWidget(),
               ),
               Stack(
                 alignment: Alignment.topCenter,
