@@ -34,19 +34,19 @@ class BuscaPage extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 children: [
                   const SearchBarWidget(),
-                  Container(
-                    margin: const EdgeInsets.only(left: 520),
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 16.0),
-                      child: BotaoFunilWidget(),
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 64.0),
                     child: Wrap(
                         children: repo.livros
                             .map((livro) => CapaLivroWidget(livro: livro))
                             .toList()),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 520),
+                    child: const Padding(
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: BotaoFunilWidget(),
+                    ),
                   ),
                 ],
               ),
