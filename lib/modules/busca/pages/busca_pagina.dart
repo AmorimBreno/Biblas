@@ -20,8 +20,8 @@ class BuscaPage extends StatelessWidget {
         children: [
           const AppBarMaua(),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 width: 400,
