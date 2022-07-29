@@ -27,7 +27,7 @@ class CapaLivroWidget extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.transparent)),
             child: Image.asset(
               livro.imagemLivro,
-              height: 198,
+              height: 200,
               width: 128,
               filterQuality: FilterQuality.high,
             ),
