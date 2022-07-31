@@ -11,7 +11,9 @@ import '../widgets/iconeProcessos_widget.dart';
 
 class BuscaPage extends StatelessWidget {
   BuscaPage({Key? key}) : super(key: key);
+
   final RepositoryMock repo = RepositoryMock();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
