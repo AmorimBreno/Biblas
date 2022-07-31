@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/modules/menu_cascata/construtorBlocos.dart';
 import 'package:projeto_biblas/modules/busca/pages/busca_pagina.dart';
-import '../../../database/repository_mock/CascataRepository.dart';
+
+import '../../../database/repository_mock/LivrosRepository.dart';
 
 class MenuCascataWidget extends StatefulWidget {
   const MenuCascataWidget({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _MenuCascataState extends State<MenuCascataWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: cursosData.map(buildTile).toList(),
+      children: RepositoryMock().blocos.map(buildTile).toList(),
     );
   }
 

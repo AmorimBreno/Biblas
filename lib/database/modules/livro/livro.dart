@@ -5,7 +5,7 @@
 class Livro {
   final String titulo; //Titulo do livro
   final String codigo; //Código do livro
-  final String autor; //Autor do livro
+  final List<String> autor; //Autor do livro
   final int lancamento; //Ano de lançamento do livro
   final String sinopse; //Sinopse do livro
   final String edicao; //Edição do livro

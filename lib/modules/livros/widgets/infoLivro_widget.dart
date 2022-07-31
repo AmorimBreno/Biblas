@@ -60,7 +60,7 @@ class InfoLivrosWidget extends StatelessWidget {
                     ),
                     Text(
                       //************************AUTOR DO LIVRO***************************************
-                      livro.autor,
+                      livro.autor[0],
                       style: TextStyle(
                           fontSize: 14.4, fontWeight: FontWeight.w100),
                     ),
