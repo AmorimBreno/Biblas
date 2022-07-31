@@ -4,9 +4,19 @@ import 'package:projeto_biblas/shared/themes/themes_colors.dart';
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({Key? key}) : super(key: key);
 
+
+  @override
+  InputPesquisa createState() => InputPesquisa();
+}
+
+class InputPesquisa extends State<SearchBar> {
+  final _textControler = TextEditingController();
+  String input = '';
+
   @override
   Widget build(BuildContext context) {
     return Container(
+
       width: 500,
       height: 50,
       color: Colors.transparent,
@@ -25,11 +35,9 @@ class SearchBarWidget extends StatelessWidget {
           suffixIcon: const Icon(
             Icons.search,
             color: Colors.black,
+
           ),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32),
-              borderSide: const BorderSide(color: Colors.black)),
-        ),
+        ],
       ),
     );
   }

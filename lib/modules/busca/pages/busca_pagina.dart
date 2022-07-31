@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/repository_mock/LivrosRepository.dart';
-
-import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/menuCascata_widget.dart';
-
+import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
+import 'package:projeto_biblas/modules/busca/widgets/botaoLivro_widget.dart';
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
 import '../widgets/capaLivro_widget.dart';
@@ -56,6 +55,10 @@ class BuscaPage extends StatelessWidget {
                   child: const IconeProcessosWidget())
             ],
           ),
+
+          CapaLivro(livro: livro),
+          const SearchBar(),
+          const BotaoLivros(),
         ],
       ),
       backgroundColor: Colors.white,
