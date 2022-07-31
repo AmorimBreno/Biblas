@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_biblas/shared/themes/themes_colors.dart';
+import 'package:projeto_biblas/shared/themes/app_colors.dart';
 
 class SearchBarWidget extends StatefulWidget {
   const SearchBarWidget({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:projeto_biblas/shared/themes/themes_colors.dart';
+import 'package:projeto_biblas/shared/themes/app_colors.dart';
 
 class BotoesLivros extends StatelessWidget {
   BotoesLivros(
