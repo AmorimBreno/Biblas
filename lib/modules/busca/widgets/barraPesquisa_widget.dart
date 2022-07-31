@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/shared/themes/themes_colors.dart';
 
-class SearchBar extends StatefulWidget {
-  const SearchBar({Key? key}) : super(key: key);
+class SearchBarWidget extends StatelessWidget {
+  const SearchBarWidget({Key? key}) : super(key: key);
+
 
   @override
   InputPesquisa createState() => InputPesquisa();
@@ -14,36 +16,26 @@ class InputPesquisa extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
-      height: 35,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(32),
-          color: Colors.lightBlue,
-          border: Border.all(color: Colors.black)),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextField(
-              cursorColor: Colors.black,
-              cursorWidth: 1,
-              cursorHeight: 22,
-              textInputAction: TextInputAction.done,
-              keyboardType: TextInputType.name,
-              controller: _textControler,
-              onSubmitted: (String str) {
-                setState(() {
-                  input = str;
-                });
-              },
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.only(bottom: 16, left: 10),
-              ),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(right: 4.0),
-            child: Icon(Icons.search),
+
+      width: 500,
+      height: 50,
+      color: Colors.transparent,
+      padding: const EdgeInsets.all(8),
+      child: TextField(
+        cursorColor: AppColors.greyblue,
+        cursorWidth: 1,
+        textInputAction: TextInputAction.done,
+        keyboardType: TextInputType.name,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: AppColors.greyblue,
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32),
+              borderSide: const BorderSide(color: Colors.black)),
+          suffixIcon: const Icon(
+            Icons.search,
+            color: Colors.black,
+
           ),
         ],
       ),
