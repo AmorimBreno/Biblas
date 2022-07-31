@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/shared/themes/themes_colors.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key}) : super(key: key);
+class SearchBarWidget extends StatefulWidget {
+  const SearchBarWidget({Key? key}) : super(key: key);
+
+  @override
+  InputPesquisa createState() => InputPesquisa();
+}
+
+class InputPesquisa extends State<SearchBarWidget> {
+  final _textControler = TextEditingController();
+  String input = '';
 
   @override
   Widget build(BuildContext context) {
@@ -11,13 +20,13 @@ class SearchBar extends StatelessWidget {
       color: Colors.transparent,
       padding: const EdgeInsets.all(8),
       child: TextField(
-        cursorColor: Colors.black,
+        cursorColor: AppColors.greyblue,
         cursorWidth: 1,
         textInputAction: TextInputAction.done,
         keyboardType: TextInputType.name,
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.lightBlue,
+          fillColor: AppColors.greyblue,
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(32),
               borderSide: const BorderSide(color: Colors.black)),
@@ -25,9 +34,6 @@ class SearchBar extends StatelessWidget {
             Icons.search,
             color: Colors.black,
           ),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32),
-              borderSide: const BorderSide(color: Colors.black)),
         ),
       ),
     );

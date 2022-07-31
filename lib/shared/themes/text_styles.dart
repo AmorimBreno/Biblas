@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
@@ -5,3 +6,4 @@ class AppTextStyles {
   static const titulosBold =
       TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black);
 }
+
