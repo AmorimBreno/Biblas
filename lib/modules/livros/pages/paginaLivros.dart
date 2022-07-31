@@ -2,8 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_biblas/database/repository_mock/LivrosRepository.dart';
-import 'package:projeto_biblas/modules/busca/widgets/botaoLivro_widget.dart';
+import 'package:projeto_biblas/database/repository_mock/repository_mock.dart';
 import 'package:projeto_biblas/modules/busca/widgets/iconeProcessos_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/infoLivro_widget.dart';
@@ -17,11 +16,9 @@ class PaginaLivros extends StatelessWidget {
   final double largura = 270;
   final double altura = 40;
 
-  Livro livro = RepositoryMock().livros[0];
+  final Livro livro;
 
-  PaginaLivros({
-    Key? key,
-  }) : super(key: key);
+  PaginaLivros({required this.livro});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

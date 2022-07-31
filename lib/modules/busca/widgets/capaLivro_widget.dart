@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import '../../../database/modules/livro/livro.dart';
+import '../../livros/pages/paginaLivros.dart';
 import '../../meus_processos/pages/processos_pagina.dart';
 
 class CapaLivroWidget extends StatelessWidget {
@@ -19,7 +20,7 @@ class CapaLivroWidget extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const ProcessosPage();
+                return PaginaLivros(livro: livro);
               }));
             },
             style: ButtonStyle(
