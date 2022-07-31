@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/modules/menu_cascata/construtorBlocos.dart';
 import 'package:projeto_biblas/modules/busca/pages/busca_pagina.dart';
 
+
 import '../../../database/repository_mock/repository_mock.dart';
 
-class MenuCascata extends StatefulWidget {
-  const MenuCascata({Key? key}) : super(key: key);
+
+
+class MenuCascataWidget extends StatefulWidget {
+  const MenuCascataWidget({Key? key}) : super(key: key);
 
   @override
-  State<MenuCascata> createState() => _MenuCascataState();
+  State<MenuCascataWidget> createState() => _MenuCascataState();
 }
 
-class _MenuCascataState extends State<MenuCascata> {
+class _MenuCascataState extends State<MenuCascataWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView(
