@@ -55,10 +55,6 @@ class BuscaPage extends StatelessWidget {
                   child: const IconeProcessosWidget())
             ],
           ),
-
-          CapaLivro(livro: livro),
-          const SearchBar(),
-          const BotaoLivros(),
         ],
       ),
       backgroundColor: Colors.white,

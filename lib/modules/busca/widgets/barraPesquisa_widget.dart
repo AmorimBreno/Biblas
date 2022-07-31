@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/shared/themes/themes_colors.dart';
 
-class SearchBarWidget extends StatelessWidget {
+class SearchBarWidget extends StatefulWidget {
   const SearchBarWidget({Key? key}) : super(key: key);
-
 
   @override
   InputPesquisa createState() => InputPesquisa();
 }
 
-class InputPesquisa extends State<SearchBar> {
+class InputPesquisa extends State<SearchBarWidget> {
   final _textControler = TextEditingController();
   String input = '';
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
       width: 500,
       height: 50,
       color: Colors.transparent,
@@ -35,9 +33,8 @@ class InputPesquisa extends State<SearchBar> {
           suffixIcon: const Icon(
             Icons.search,
             color: Colors.black,
-
           ),
-        ],
+        ),
       ),
     );
   }

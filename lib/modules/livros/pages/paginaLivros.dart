@@ -27,7 +27,7 @@ class PaginaLivros extends StatelessWidget {
     return Scaffold(
         body: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
       const AppBarMaua(),
-      const IconeProcessos(),
+      const IconeProcessosWidget(),
       Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           child: InfoLivrosWidget(
