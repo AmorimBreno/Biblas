@@ -16,9 +16,7 @@ class InfoLivrosWidget extends StatelessWidget {
           height: 254.25,
           width: 180,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(
-                      "assets/images/introducao_a_programacao_com_python.png"))),
+              image: DecorationImage(image: AssetImage(livro.imagemLivro))),
         ),
 
         // Aqui sera inserido o widget com as informações do livro
