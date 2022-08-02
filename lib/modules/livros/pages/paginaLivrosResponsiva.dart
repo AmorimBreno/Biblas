@@ -39,7 +39,18 @@ class _PaginaLivroResponsivaState extends State<PaginaLivrosResponsiva> {
                 child: SizedBox(
                     height: alturatela,
                     width: larguratela > 600 ? 600 : larguratela,
-                    child: InfoLivrosWidget(livro: livro)))
+                    child: Column(
+                      children: [
+                        InfoLivrosWidget(livro: livro),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            BotoesLivros(texto: "Solicitar"),
+                            BotoesLivros(texto: "Reservar"),
+                          ],
+                        ),
+                      ],
+                    )))
           ],
         ));
   }
