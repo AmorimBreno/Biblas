@@ -1,11 +1,12 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:projeto_biblas/modules/busca/pages/paginaBusca.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 
 class BotoesLivros extends StatefulWidget {
   const BotoesLivros({Key? key, this.texto}) : super(key: key);
 
+  // ignore: prefer_typing_uninitialized_variables
   final texto;
 
   @override
@@ -27,7 +28,7 @@ class BotoesLivrosState extends State<BotoesLivros> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => activate(),
         child: Container(
           height: larguraTela < 800 ? 40 : 50,
           width: larguraTela < 800 ? 270 : 370,
