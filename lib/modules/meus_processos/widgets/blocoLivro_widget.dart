@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/database/enum/livroSituacao_enum.dart';
+import 'package:projeto_biblas/database/enum/tiposSituacao.dart';
 import 'package:projeto_biblas/database/modules/livro/livro.dart';
-import 'package:projeto_biblas/modules/meus_processos/widgets/situacaoLivro_widget.dart';
-import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
 
 import '../../../database/repository_mock/repository_mock.dart';
@@ -13,7 +13,7 @@ class BlocoLivro extends StatelessWidget {
   final String dataLimite;
   final String dataRetirada;
   final List<Livro> teste = RepositoryMock().livros;
-  final int situacaoLivro; // 0 EM POSSE, 1 DEVOLVIDO, -1 ATRASADO
+  final LivroSituacao situacaoLivro; // EM POSSE, DEVOLVIDO, ATRASADO
 
   BlocoLivro(
       {Key? key,
@@ -83,7 +83,8 @@ class BlocoLivro extends StatelessWidget {
                       const SizedBox(width: 470),
                       Text(dataLimite, style: AppTextStyles.titulos),
                       const SizedBox(width: 465),
-                      SituacaoLivro(situacao: situacaoLivro),
+                      //SituacaoLivro(situacao: situacaoLivro),
+                      tiposSituacao(situacaoLivro),
                     ],
                   ),
                 ],
