@@ -31,29 +31,30 @@ class _PaginaLivroResponsivaState extends State<PaginaLivrosResponsiva> {
     final alturatela = MediaQuery.of(context).size.height;
 
     return Scaffold(
-        backgroundColor:
-            larguratela < 600 ? Colors.deepPurple[300] : Colors.green[300],
         body: ListView(
-          children: [
-            const AppBarMaua(),
-            Center(
-                child: SizedBox(
-                    height: alturatela,
-                    width: larguratela > 600 ? 600 : larguratela,
-                    child: Column(
-                      children: [
-                        InfoLivrosWidget(livro: livro),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            BotoesLivros(texto: "Solicitar"),
-                            BotoesLivros(texto: "Reservar"),
-                          ],
-                        ),
-                        Expanded(child: Sinopse_Widget(livro: livro)),
-                      ],
-                    )))
-          ],
-        ));
+      children: [
+        const AppBarMaua(),
+        Center(
+            child: Padding(
+          padding: const EdgeInsets.only(top: 24.0),
+          child: SizedBox(
+              height: larguratela > 800 ? alturatela * 1.2 : alturatela * 0.9,
+              width: larguratela > 800 ? 800 : larguratela,
+              child: Column(
+                children: [
+                  InfoLivrosWidget(livro: livro),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      BotoesLivros(texto: "Solicitar"),
+                      BotoesLivros(texto: "Reservar"),
+                    ],
+                  ),
+                  Expanded(child: Sinopse_Widget(livro: livro)),
+                ],
+              )),
+        ))
+      ],
+    ));
   }
 }

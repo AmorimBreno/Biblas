@@ -13,12 +13,15 @@ class InfoLivrosWidget extends StatelessWidget {
     final alturaTela = MediaQuery.of(context).size.height;
     final larguraTela = MediaQuery.of(context).size.width;
 
+    double letraTitulo = larguraTela < 800 ? 14.4 : 20;
+    double letraResto = larguraTela < 800 ? 14.4 : 17;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Image.asset(
           livro.imagemLivro,
-          height: alturaTela / 3,
+          height: larguraTela > 800 ? alturaTela / 2 : alturaTela / 3,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
@@ -36,7 +39,8 @@ class InfoLivrosWidget extends StatelessWidget {
                         child: Text(
                           livro.titulo,
                           style: TextStyle(
-                              fontSize: 14.4, fontWeight: FontWeight.bold),
+                              fontSize: letraTitulo,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
@@ -52,6 +56,7 @@ class InfoLivrosWidget extends StatelessWidget {
                                 style: TextStyle(
                                     letterSpacing: 2,
                                     color: Colors.white,
+                                    fontSize: letraTitulo,
                                     fontWeight: FontWeight.w600)),
                       ),
                     )
@@ -59,19 +64,24 @@ class InfoLivrosWidget extends StatelessWidget {
                 ),
                 Text(
                   livro.autor[0],
-                  style: TextStyle(fontSize: 14.4, fontWeight: FontWeight.w100),
+                  style: TextStyle(
+                      fontSize: letraResto, fontWeight: FontWeight.w100),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 48.0, bottom: 4),
                   child: RichText(
                       text: TextSpan(
                           text: 'Lançamento: ',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: letraResto),
                           children: <TextSpan>[
                         TextSpan(
                           // ******************************** LANÇAMENTO DO LIVRO ************************
                           text: livro.lancamento.toString(),
-                          style: TextStyle(fontWeight: FontWeight.w100),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w100,
+                              fontSize: letraResto),
                         )
                       ])),
                 ),
@@ -80,17 +90,23 @@ class InfoLivrosWidget extends StatelessWidget {
                   child: RichText(
                       text: TextSpan(
                           text: 'Edição: ',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: letraResto),
                           children: <TextSpan>[
                         TextSpan(
                           // ******************************** LANÇAMENTO DO LIVRO ************************
                           text: livro.edicao,
-                          style: TextStyle(fontWeight: FontWeight.w100),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w100,
+                              fontSize: letraResto),
                         )
                       ])),
                 ),
                 Row(children: [
-                  Text("Tags: ", style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Tags: ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: letraResto)),
                   Container()
                 ]),
                 Padding(
@@ -98,11 +114,14 @@ class InfoLivrosWidget extends StatelessWidget {
                   child: RichText(
                       text: TextSpan(
                           text: 'Disponibilidade: ',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: letraTitulo),
                           children: <TextSpan>[
                         TextSpan(
                           text: "Disponível",
-                          style: TextStyle(color: Colors.green),
+                          style: TextStyle(
+                              color: Colors.green, fontSize: letraTitulo),
                         )
                       ])),
                 )
