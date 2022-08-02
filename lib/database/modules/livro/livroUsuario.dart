@@ -16,9 +16,8 @@ class LivroUsuario extends Livro {
       String imagemLivro,
       this.status,
       this.retirada)
-      : super(titulo, '', [], 0, '', '', [], '') {
+      : super(titulo, codigo, autor, lancamento, sinopse, edicao, tags,
+            imagemLivro) {
     limite = retirada.add(const Duration(days: 7));
   }
-
-  void func() {}
 }
