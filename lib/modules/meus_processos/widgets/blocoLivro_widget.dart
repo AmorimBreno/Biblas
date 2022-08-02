@@ -33,64 +33,64 @@ class BlocoLivro extends StatelessWidget {
           elevation: MaterialStateProperty.all(10),
         ),
         onPressed: () {},
-        child: Row(
-          children: [
-            Container(
-              height: 154,
-              width: 209,
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage(caminhoImagem))),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            SizedBox(
-              width: 1547,
-              height: 209,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(tituloLivro, style: AppTextStyles.titulos),
-                      const SizedBox(width: 1300),
-                      Text(codigoLivro, style: AppTextStyles.titulosBold)
-                    ],
-                  ),
-                  const Divider(
-                    thickness: 1,
-                    color: Colors.black,
-                  ),
-                  const SizedBox(height: 30),
-                  Row(
-                    children: const [
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Text('Retirada', style: AppTextStyles.titulos),
-                      SizedBox(width: 542),
-                      Text('Limite', style: AppTextStyles.titulos),
-                      SizedBox(width: 542),
-                      Text('Status', style: AppTextStyles.titulos),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(dataRetirada, style: AppTextStyles.titulos),
-                      const SizedBox(width: 470),
-                      Text(dataLimite, style: AppTextStyles.titulos),
-                      const SizedBox(width: 465),
-                      //SituacaoLivro(situacao: situacaoLivro),
-                      tiposSituacao(situacaoLivro),
-                    ],
-                  ),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 209, maxHeight: 154),
+                child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(image: AssetImage(caminhoImagem))),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(tituloLivro, style: AppTextStyles.titulos),
+                        Text(codigoLivro, style: AppTextStyles.titulosBold)
+                      ],
+                    ),
+                    const Divider(
+                      thickness: 1,
+                      color: Colors.black,
+                    ),
+                    const SizedBox(height: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Retirada', style: AppTextStyles.titulos),
+                            Text(dataRetirada, style: AppTextStyles.titulos),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text('Limite', style: AppTextStyles.titulos),
+                            Text(dataLimite, style: AppTextStyles.titulos),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text('Status', style: AppTextStyles.titulos),
+                            tiposSituacao(situacaoLivro),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }

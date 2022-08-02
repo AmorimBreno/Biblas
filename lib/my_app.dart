@@ -6,7 +6,6 @@ import 'package:projeto_biblas/modules/busca/pages/paginaBusca.dart';
 
 import 'modules/livros/pages/paginaLivros.dart';
 
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -15,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Biblas",
-
-      home: PaginaBusca(),
-
+      home: ProcessosPage(),
     );
   }
 }
