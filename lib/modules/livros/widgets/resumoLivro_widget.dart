@@ -14,7 +14,7 @@ class Sinopse_Widget extends StatelessWidget {
     return SizedBox(
       height: 200,
       width: 600,
-      child: ListView(children: [
+      child: Column(children: [
         const Text('Sinopse:', style: TextStyle(fontSize: 22.5)),
         Text(livro.sinopse, style: TextStyle(fontSize: 13.5))
       ]),

@@ -5,6 +5,7 @@ import 'package:projeto_biblas/database/modules/livro/livro.dart';
 import 'package:projeto_biblas/modules/busca/widgets/iconeProcessos_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/infoLivro_widget.dart';
+import 'package:projeto_biblas/modules/livros/widgets/resumoLivro_widget.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
 
 class PaginaLivrosResponsiva extends StatefulWidget {
@@ -49,6 +50,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivrosResponsiva> {
                             BotoesLivros(texto: "Reservar"),
                           ],
                         ),
+                        Expanded(child: Sinopse_Widget(livro: livro)),
                       ],
                     )))
           ],
