@@ -13,15 +13,18 @@ class Sinopse_Widget extends StatelessWidget {
   Widget build(BuildContext context) {
     final larguraTela = MediaQuery.of(context).size.width;
 
-    double letraSinopse = larguraTela < 800 ? 22.5 : 24;
+    double letraSinopse = larguraTela < 800 ? 22.5 : 28;
     double letraTexto = larguraTela < 800 ? 14.4 : 20;
 
     return SizedBox(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        child: ListView(children: [
           Text('Sinopse:', style: TextStyle(fontSize: letraSinopse)),
-          Text(livro.sinopse, style: TextStyle(fontSize: letraTexto))
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: Text(livro.sinopse, style: TextStyle(fontSize: letraTexto)),
+          )
         ]),
       ),
     );
