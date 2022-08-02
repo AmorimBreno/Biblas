@@ -8,6 +8,7 @@ class AppColors {
   static const devolvido = Color.fromRGBO(8, 204, 51, 1);
   static const atrasado = Color.fromRGBO(204, 8, 43, 1);
   static final greyblue = Color(0xFF91B0CA);
-  static final reservado = Color(0xFF526E72);
-  static final retirar = Color(0xFF8A00);
+  static final reservado = Color.fromRGBO(82, 110, 114, 1);
+  static final retirar = Color.fromRGBO(255, 138, 0, 1);
+  static final fila = Color.fromRGBO(255, 0, 15, 1);
 }
