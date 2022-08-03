@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projeto_biblas/database/usuario/usuario_singleton.dart';
 import '../../../database/modules/livro/livro.dart';
 import '../../livros/pages/paginaLivros.dart';
 import '../../meus_processos/pages/processos_pagina.dart';
+import '../pages/paginaBusca.dart';
 
 class CapaLivroWidget extends StatelessWidget {
   final Livro livro;
