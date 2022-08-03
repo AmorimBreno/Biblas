@@ -54,7 +54,7 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
             height: alturaContainerBranco,
             width: larguraContainerBranco,
             child: Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Center(
                   child: Padding(
                 padding: EdgeInsets.only(

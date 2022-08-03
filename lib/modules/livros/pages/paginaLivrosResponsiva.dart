@@ -105,14 +105,17 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
           child: Stack(children: [
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-              child: GestureDetector(
-                onTap: () => setState(() {
-                  isOpen = !isOpen;
-                }),
-                child: Container(
-                  height: alturatela,
-                  width: larguratela,
-                  color: Colors.transparent,
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    isOpen = !isOpen;
+                  }),
+                  child: Container(
+                    height: alturatela,
+                    width: larguratela,
+                    color: Colors.transparent,
+                  ),
                 ),
               ),
             ),
