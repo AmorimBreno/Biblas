@@ -3,6 +3,7 @@ import 'package:projeto_biblas/database/repository_mock/repository_mock.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/menuCascata_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
+import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
 import '../widgets/capaLivro_widget.dart';
@@ -58,7 +59,7 @@ class PaginaBusca extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
     );
   }
 }
