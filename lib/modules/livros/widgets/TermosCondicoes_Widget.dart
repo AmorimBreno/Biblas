@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projeto_biblas/modules/livros/widgets/TermosWidget.dart';
 import 'package:projeto_biblas/my_app.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
@@ -23,6 +24,9 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
   Widget build(BuildContext context) {
     final larguraTela = MediaQuery.of(context).size.width;
     final alturaTela = MediaQuery.of(context).size.height;
+
+    final tamanhoContainerBranco =
+        larguraTela < 800 ? larguraTela * 0.8 : 0.45 * larguraTela;
 
     return Visibility(
       visible: isVisivel,
@@ -44,7 +48,11 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
                   )
                 ]),
             height: 500,
-            width: larguraTela < 800 ? larguraTela * 0.8 : 0.45 * larguraTela,
+            width: tamanhoContainerBranco,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(child: TermosWidget()),
+            ),
           ),
           Container(
             color: AppColors.lightblue,
