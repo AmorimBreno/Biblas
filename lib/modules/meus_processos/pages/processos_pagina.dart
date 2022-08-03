@@ -57,6 +57,42 @@ class PaginaProcessos extends StatelessWidget {
                   dataRetirada: '13/02/2022',
                   situacaoLivro: LivroSituacao.ATRASADO,
                 ),
+                const SizedBox(
+                  height: 40,
+                ),
+                BlocoLivro(
+                  caminhoImagem:
+                      'assets/images/introducao_a_sistemas_eletricos_de_potencia_componentes_simetricas.jpg',
+                  tituloLivro:
+                      'Introdução a Sistemas Elétricos de Potência Componenetes Simétricas',
+                  codigoLivro: '#9R2M4',
+                  dataLimite: '07/02/2022',
+                  dataRetirada: '14/02/2022',
+                  situacaoLivro: LivroSituacao.RESERVADO,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                BlocoLivro(
+                  caminhoImagem:
+                      'assets/images/sprint_o_metodo_usado_no_google_para_testar_e_aplicar_novas_ideias_em_apenas_cinco_dias.jpg',
+                  tituloLivro: 'Sprint',
+                  codigoLivro: '#7HB9M',
+                  dataLimite: '10/02/2022',
+                  dataRetirada: '20/02/2022',
+                  situacaoLivro: LivroSituacao.RETIRAR,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                BlocoLivro(
+                  caminhoImagem: 'assets/images/calculo.png',
+                  tituloLivro: 'Cálculo',
+                  codigoLivro: '#5CB8E',
+                  dataLimite: '04/02/2022',
+                  dataRetirada: '11/02/2022',
+                  situacaoLivro: LivroSituacao.FILA,
+                ),
               ],
             ),
           )

@@ -13,6 +13,15 @@ Text tiposSituacao(LivroSituacao situacao) {
     case LivroSituacao.DEVOLVIDO:
       return const Text('DEVOLVIDO',
           style: TextStyle(fontSize: 32, color: AppColors.devolvido));
+    case LivroSituacao.RETIRAR:
+      return const Text('À RETIRAR',
+          style: TextStyle(fontSize: 32, color: AppColors.retirar));
+    case LivroSituacao.RESERVADO:
+      return const Text('RESERVADO',
+          style: TextStyle(fontSize: 32, color: AppColors.reservado));
+    case LivroSituacao.FILA:
+      return const Text('FILA: X',
+          style: TextStyle(fontSize: 32, color: AppColors.fila));
     default:
       return const Text('ERRO',
           style: TextStyle(fontSize: 32, color: AppColors.atrasado));
