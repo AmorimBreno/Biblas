@@ -10,6 +10,7 @@ import 'package:projeto_biblas/modules/livros/widgets/resumoLivro_widget.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
 
 import '../../../shared/themes/app_colors.dart';
+import '../widgets/TermosCondicoesAgendar_Widget.dart';
 import '../widgets/TermosCondicoes_Widget.dart';
 
 class PaginaLivros extends StatefulWidget {
@@ -27,7 +28,8 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
   _PaginaLivroResponsivaState({required this.livro});
 
   final Livro livro;
-  bool isOpen = false;
+  bool isOpenSolicitar = false;
+  bool isOpenReservar = false;
   double alturaContainer = 0;
 
   @override
@@ -63,7 +65,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    isOpen = !isOpen;
+                                    isOpenSolicitar = !isOpenSolicitar;
                                   });
                                 },
                                 child: BotoesLivros(
@@ -76,7 +78,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    isOpen = !isOpen;
+                                    isOpenReservar = !isOpenReservar;
                                   });
                                 },
                                 child: BotoesLivros(
@@ -101,7 +103,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
           ],
         ),
         Visibility(
-          visible: isOpen,
+          visible: isOpenSolicitar,
           child: Stack(children: [
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
@@ -109,7 +111,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () => setState(() {
-                    isOpen = !isOpen;
+                    isOpenSolicitar = !isOpenSolicitar;
                   }),
                   child: Container(
                     height: alturatela,
@@ -122,6 +124,28 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
             Center(child: TermosCondicoesWidget())
           ]),
         ),
+        Visibility(
+          visible: isOpenReservar,
+          child: Stack(children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    isOpenReservar = !isOpenReservar;
+                  }),
+                  child: Container(
+                    height: alturatela,
+                    width: larguratela,
+                    color: Colors.transparent,
+                  ),
+                ),
+              ),
+            ),
+            Center(child: TermosCondicoesWidgetAgendar())
+          ]),
+        )
       ],
     ));
   }
