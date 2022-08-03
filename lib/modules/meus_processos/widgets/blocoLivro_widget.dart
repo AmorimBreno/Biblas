@@ -27,70 +27,93 @@ class BlocoLivro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.white),
-          elevation: MaterialStateProperty.all(10),
-        ),
-        onPressed: () {},
-        child: Row(
-          children: [
-            Container(
-              height: 154,
-              width: 209,
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage(caminhoImagem))),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            SizedBox(
-              width: 1547,
-              height: 209,
-              child: Column(
-                children: [
-                  Row(
+    return Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 5,
+              )
+            ]),
+        // onPressed: () {},
+        child: GestureDetector(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                ConstrainedBox(
+                  constraints:
+                      const BoxConstraints(maxWidth: 150, maxHeight: 215),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image:
+                            DecorationImage(image: AssetImage(caminhoImagem))),
+                  ),
+                ),
+                const SizedBox(
+                  width: 30,
+                ),
+                Expanded(
+                  child: Column(
                     children: [
-                      Text(tituloLivro, style: AppTextStyles.titulos),
-                      const SizedBox(width: 1300),
-                      Text(codigoLivro, style: AppTextStyles.titulosBold)
-                    ],
-                  ),
-                  const Divider(
-                    thickness: 1,
-                    color: Colors.black,
-                  ),
-                  const SizedBox(height: 30),
-                  Row(
-                    children: const [
-                      SizedBox(
-                        width: 30,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(tituloLivro, style: AppTextStyles.titulos),
+                          Text(codigoLivro, style: AppTextStyles.titulosBold)
+                        ],
                       ),
-                      Text('Retirada', style: AppTextStyles.titulos),
-                      SizedBox(width: 542),
-                      Text('Limite', style: AppTextStyles.titulos),
-                      SizedBox(width: 542),
-                      Text('Status', style: AppTextStyles.titulos),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      const SizedBox(
-                        width: 10,
+                      const Divider(
+                        thickness: 1,
+                        color: Colors.black,
                       ),
-                      Text(dataRetirada, style: AppTextStyles.titulos),
-                      const SizedBox(width: 470),
-                      Text(dataLimite, style: AppTextStyles.titulos),
-                      const SizedBox(width: 465),
-                      //SituacaoLivro(situacao: situacaoLivro),
-                      tiposSituacao(situacaoLivro),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              const Text('Retirada',
+                                  style: AppTextStyles.titulos),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(dataRetirada, style: AppTextStyles.titulos),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Text('Limite',
+                                  style: AppTextStyles.titulos),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(dataLimite, style: AppTextStyles.titulos),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Text('Status',
+                                  style: AppTextStyles.titulos),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              tiposSituacao(situacaoLivro),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ));
   }
 }
