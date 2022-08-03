@@ -1,4 +1,6 @@
 // ignore: file_names
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/modules/livro/livro.dart';
 import 'package:projeto_biblas/modules/busca/widgets/iconeProcessos_widget.dart';
@@ -7,6 +9,7 @@ import 'package:projeto_biblas/modules/livros/widgets/infoLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/resumoLivro_widget.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
 
+import '../../../shared/themes/app_colors.dart';
 import '../widgets/TermosCondicoes_Widget.dart';
 
 class PaginaLivros extends StatefulWidget {
@@ -24,13 +27,13 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
   _PaginaLivroResponsivaState({required this.livro});
 
   final Livro livro;
+  bool isOpen = false;
+  double alturaContainer = 0;
 
   @override
   Widget build(BuildContext context) {
     final larguratela = MediaQuery.of(context).size.width;
     final alturatela = MediaQuery.of(context).size.height;
-
-    double alturaContainer = 500;
 
     return Scaffold(
         body: Stack(
@@ -55,8 +58,32 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const BotoesLivros(texto: "Solicitar"),
-                            const BotoesLivros(texto: "Reservar"),
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isOpen = !isOpen;
+                                  });
+                                },
+                                child: BotoesLivros(
+                                  texto: "Solicitar",
+                                ),
+                              ),
+                            ),
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isOpen = !isOpen;
+                                  });
+                                },
+                                child: BotoesLivros(
+                                  texto: "Reservar",
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -64,7 +91,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                         padding: EdgeInsets.symmetric(horizontal: 8.0),
                         child: Divider(
                           thickness: 2,
-                          color: Colors.grey,
+                          color: Colors.black87,
                         ),
                       ),
                       Expanded(child: Sinopse_Widget(livro: livro)),
@@ -73,10 +100,24 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
             ))
           ],
         ),
-        Center(
-          child: TermosCondicoesWidget(
-            alturaContainer: alturaContainer,
-          ),
+        Visibility(
+          visible: isOpen,
+          child: Stack(children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+              child: GestureDetector(
+                onTap: () => setState(() {
+                  isOpen = !isOpen;
+                }),
+                child: Container(
+                  height: alturatela,
+                  width: larguratela,
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
+            Center(child: TermosCondicoesWidget())
+          ]),
         ),
       ],
     ));

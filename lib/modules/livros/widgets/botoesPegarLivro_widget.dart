@@ -22,28 +22,24 @@ class BotoesLivrosState extends State<BotoesLivros> {
 
   @override
   Widget build(BuildContext context) {
-    final alturaTela = MediaQuery.of(context).size.height;
     final larguraTela = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: GestureDetector(
-        onTap: () => activate(),
-        child: Container(
-          height: larguraTela < 800 ? 40 : 50,
-          width: larguraTela < 800 ? 270 : 370,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(2),
-            color: AppColors.darkblue,
-          ),
-          child: Center(
-              child: Text(texto,
-                  style: TextStyle(
-                      letterSpacing: 2,
-                      color: Colors.white,
-                      fontSize: larguraTela < 800 ? 22.5 : 30,
-                      fontWeight: FontWeight.bold))),
+      child: Container(
+        height: larguraTela < 800 ? 40 : 50,
+        width: larguraTela < 800 ? 270 : 370,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(2),
+          color: AppColors.darkblue,
         ),
+        child: Center(
+            child: Text(texto,
+                style: TextStyle(
+                    letterSpacing: 2,
+                    color: Colors.white,
+                    fontSize: larguraTela < 800 ? 22.5 : 30,
+                    fontWeight: FontWeight.bold))),
       ),
     );
   }

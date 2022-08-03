@@ -1,29 +1,34 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projeto_biblas/my_app.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
+import 'package:projeto_biblas/shared/themes/text_styles.dart';
 
 class TermosCondicoesWidget extends StatefulWidget {
-  TermosCondicoesWidget({required this.alturaContainer});
-
-  late double alturaContainer;
+  TermosCondicoesWidget();
 
   @override
-  State<TermosCondicoesWidget> createState() =>
-      _TermosCondicoesWidgetState(alturaContainer: alturaContainer);
+  State<TermosCondicoesWidget> createState() => _TermosCondicoesWidgetState();
 }
 
 class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
-  _TermosCondicoesWidgetState({required this.alturaContainer});
-  double alturaContainer;
+  _TermosCondicoesWidgetState();
+  bool isVisivel = true;
 
   @override
   Widget build(BuildContext context) {
     final larguraTela = MediaQuery.of(context).size.width;
-    return Stack(
-      children: [
-        AnimatedContainer(
+    final alturaTela = MediaQuery.of(context).size.height;
+
+    return Visibility(
+      visible: isVisivel,
+      child: Stack(
+        children: [
+          Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
                 color: Colors.white,
@@ -38,16 +43,21 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
                     spreadRadius: 1.0,
                   )
                 ]),
-            height: alturaContainer,
+            height: 500,
             width: larguraTela < 800 ? larguraTela * 0.8 : 0.45 * larguraTela,
-            duration: Duration.zero),
-        Container(
-          color: AppColors.greyblue,
-          height:
-              larguraTela < 800 ? alturaContainer * 0.15 : alturaContainer * 0.2,
-          width: larguraTela < 800 ? larguraTela * 0.8 : 0.45 * larguraTela,
-        ),
-      ],
+          ),
+          Container(
+            color: AppColors.lightblue,
+            height: larguraTela < 800 ? 500 * 0.15 : 500 * 0.2,
+            width: larguraTela < 800 ? larguraTela * 0.8 : 0.45 * larguraTela,
+            child: Center(
+                child: Text(
+              "CONDIÇÕES DE EMPRÉSTIMO DA BIBLIOTECA",
+              style: AppTextStyles.titulos.copyWith(fontSize: 24),
+            )),
+          ),
+        ],
+      ),
     );
   }
 }
