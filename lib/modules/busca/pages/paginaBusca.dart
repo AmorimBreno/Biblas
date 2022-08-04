@@ -42,12 +42,12 @@ class _PaginaBuscaState extends State<PaginaBusca> {
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 width: 500,
                 height: 1000,
-                child: const MenuCascataWidget(),
+                child: MenuCascataWidget(selecionarTag: funcionalidadeCascata),
               ),
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  SearchBarWidget(detectaTexto: detectaTexto),
+                  SearchBarWidget(detectaTexto: funcionalidadeBarraPesquisa),
                   Padding(
                     padding: const EdgeInsets.only(top: 64.0),
                     child: Wrap(
@@ -75,8 +75,18 @@ class _PaginaBuscaState extends State<PaginaBusca> {
     );
   }
 
-  void detectaTexto(String query) {
+  void funcionalidadeBarraPesquisa(String query) {
     List<Livro> livros = repo.pegarLivroPorTitulo(query);
+    // livros.forEach((element) {
+    //   print(element.titulo);
+    // });
+    setState(() {
+      lista_livros_local = livros;
+    });
+  }
+
+  void funcionalidadeCascata(String query) {
+    List<Livro> livros = repo.pegarLivroPorMateria(query);
     // livros.forEach((element) {
     //   print(element.titulo);
     // });
