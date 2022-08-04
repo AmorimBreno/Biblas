@@ -9,6 +9,7 @@ import 'package:projeto_biblas/modules/livros/widgets/termos_widget.dart';
 import 'package:projeto_biblas/my_app.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 import '../../meus_processos/pages/processos_pagina.dart';
 
@@ -27,6 +28,9 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
   _TermosCondicoesWidgetState(this.isVisivelTermos);
   bool isVisivelTudo = true;
   late bool isVisivelTermos;
+  CalendarFormat _calendarFormat = CalendarFormat.month;
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
 
   @override
   Widget build(BuildContext context) {
@@ -114,12 +118,34 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
               )),
           Visibility(
             visible: !isVisivelTermos,
-            child: Positioned(
-                right: larguraContainerBranco / 2,
-                top: alturaContainerBranco / 2,
-                child: Text(
-                  "Calendário",
-                  style: AppTextStyles.titulos,
+            child: PositionedDirectional(
+                end: 45,
+                top: alturaContainerBranco / 2 - 180,
+                child: SizedBox(
+                  width: 600,
+                  child: TableCalendar(
+                    firstDay: DateTime(2022, 01, 01),
+                    focusedDay: DateTime.now(),
+                    lastDay: DateTime(2022, 12, 30),
+                    selectedDayPredicate: (day) {
+                      return isSameDay(_selectedDay, day);
+                    },
+                    onDaySelected: (selectedDay, focusedDay) {
+                      setState(() {
+                        _selectedDay = selectedDay;
+                        _focusedDay = focusedDay;
+                      });
+                    },
+                    calendarFormat: _calendarFormat,
+                    onFormatChanged: (format) {
+                      setState(() {
+                        _calendarFormat = format;
+                      });
+                    },
+                    onPageChanged: (focusedDay) {
+                      _focusedDay = focusedDay;
+                    },
+                  ),
                 )),
           )
         ],
