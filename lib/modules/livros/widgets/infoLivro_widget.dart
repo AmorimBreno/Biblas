@@ -34,8 +34,9 @@ class InfoLivrosWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 72.0),
+                      padding: const EdgeInsets.only(right: 16.0),
                       child: Expanded(
+                        flex: 2,
                         child: Text(
                           livro.titulo,
                           style: TextStyle(
