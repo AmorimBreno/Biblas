@@ -8,6 +8,32 @@ class PaginaProcessos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<int> teste = [0, 1, 2, 3, 4, 5];
+    List<String> dataLimites = [
+      '04/02/2022',
+      '05/02/2022',
+      '06/02/2022',
+      '07/02/2022',
+      '10/02/2022',
+      '04/02/2022',
+    ];
+    List<String> dataRetiradas = [
+      '11/02/2022',
+      '12/02/2022',
+      '13/02/2022',
+      '14/02/2022',
+      '20/02/2022',
+      '11/02/2022',
+    ];
+    List<LivroSituacao> situacoesLivros = [
+      LivroSituacao.EMPOSSE,
+      LivroSituacao.DEVOLVIDO,
+      LivroSituacao.ATRASADO,
+      LivroSituacao.RESERVADO,
+      LivroSituacao.RETIRAR,
+      LivroSituacao.FILA
+    ];
+
     return Scaffold(
       body: ListView(
         children: [
@@ -28,9 +54,7 @@ class PaginaProcessos extends StatelessWidget {
                   height: 10,
                 ),
                 BlocoLivro(
-                    caminhoImagem: 'assets/images/calculo.png',
-                    tituloLivro: 'Cálculo',
-                    codigoLivro: '#5CB8E',
+                    indice: 0,
                     dataLimite: '04/02/2022',
                     dataRetirada: '11/02/2022',
                     situacaoLivro: LivroSituacao.EMPOSSE),
@@ -38,10 +62,7 @@ class PaginaProcessos extends StatelessWidget {
                   height: 40,
                 ),
                 BlocoLivro(
-                  caminhoImagem:
-                      'assets/images/introducao_a_programacao_com_python.png',
-                  tituloLivro: 'Introdução a programação com Python',
-                  codigoLivro: '#3TL8B',
+                  indice: 1,
                   dataLimite: '05/02/2022',
                   dataRetirada: '12/02/2022',
                   situacaoLivro: LivroSituacao.DEVOLVIDO,
@@ -50,9 +71,7 @@ class PaginaProcessos extends StatelessWidget {
                   height: 40,
                 ),
                 BlocoLivro(
-                  caminhoImagem: 'assets/images/resistencia_dos_materiais.png',
-                  tituloLivro: 'Resistência dos Materiais',
-                  codigoLivro: '#9RM3O',
+                  indice: 2,
                   dataLimite: '06/02/2022',
                   dataRetirada: '13/02/2022',
                   situacaoLivro: LivroSituacao.ATRASADO,
@@ -61,11 +80,7 @@ class PaginaProcessos extends StatelessWidget {
                   height: 40,
                 ),
                 BlocoLivro(
-                  caminhoImagem:
-                      'assets/images/introducao_a_sistemas_eletricos_de_potencia_componentes_simetricas.jpg',
-                  tituloLivro:
-                      'Introdução a Sistemas Elétricos de Potência Componenetes Simétricas',
-                  codigoLivro: '#9R2M4',
+                  indice: 3,
                   dataLimite: '07/02/2022',
                   dataRetirada: '14/02/2022',
                   situacaoLivro: LivroSituacao.RESERVADO,
@@ -74,10 +89,7 @@ class PaginaProcessos extends StatelessWidget {
                   height: 40,
                 ),
                 BlocoLivro(
-                  caminhoImagem:
-                      'assets/images/sprint_o_metodo_usado_no_google_para_testar_e_aplicar_novas_ideias_em_apenas_cinco_dias.jpg',
-                  tituloLivro: 'Sprint',
-                  codigoLivro: '#7HB9M',
+                  indice: 4,
                   dataLimite: '10/02/2022',
                   dataRetirada: '20/02/2022',
                   situacaoLivro: LivroSituacao.RETIRAR,
@@ -86,9 +98,7 @@ class PaginaProcessos extends StatelessWidget {
                   height: 40,
                 ),
                 BlocoLivro(
-                  caminhoImagem: 'assets/images/calculo.png',
-                  tituloLivro: 'Cálculo',
-                  codigoLivro: '#5CB8E',
+                  indice: 5,
                   dataLimite: '04/02/2022',
                   dataRetirada: '11/02/2022',
                   situacaoLivro: LivroSituacao.FILA,
