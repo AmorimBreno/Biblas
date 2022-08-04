@@ -9,10 +9,22 @@ import '../../../shared/widgets/app_bar_widget.dart';
 import '../widgets/capaLivro_widget.dart';
 import '../widgets/iconeProcessos_widget.dart';
 
-class PaginaBusca extends StatelessWidget {
+class PaginaBusca extends StatefulWidget {
   PaginaBusca({Key? key}) : super(key: key);
 
+  @override
+  State<PaginaBusca> createState() => _PaginaBuscaState();
+}
+
+class _PaginaBuscaState extends State<PaginaBusca> {
   final RepositoryMock repo = RepositoryMock();
+  late List<Livro> lista_livros_local;
+
+  @override
+  void initState() {
+    super.initState();
+    lista_livros_local = repo.livros;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +47,11 @@ class PaginaBusca extends StatelessWidget {
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  const SearchBarWidget(),
+                  SearchBarWidget(detectaTexto: detectaTexto),
                   Padding(
                     padding: const EdgeInsets.only(top: 64.0),
                     child: Wrap(
-                        children: repo.livros
+                        children: lista_livros_local
                             .map((livro) => CapaLivroWidget(livro: livro))
                             .toList()),
                   ),
@@ -61,5 +73,15 @@ class PaginaBusca extends StatelessWidget {
       ),
       backgroundColor: AppColors.backgroundColor,
     );
+  }
+
+  void detectaTexto(String query) {
+    List<Livro> livros = repo.pegarLivroPorTitulo(query);
+    // livros.forEach((element) {
+    //   print(element.titulo);
+    // });
+    setState(() {
+      lista_livros_local = livros;
+    });
   }
 }

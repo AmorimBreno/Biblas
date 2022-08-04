@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 
 class SearchBarWidget extends StatefulWidget {
-  const SearchBarWidget({Key? key}) : super(key: key);
+  final void Function(String) detectaTexto;
+  const SearchBarWidget({Key? key, required this.detectaTexto})
+      : super(key: key);
 
   @override
   InputPesquisa createState() => InputPesquisa();
@@ -20,6 +22,7 @@ class InputPesquisa extends State<SearchBarWidget> {
       color: Colors.transparent,
       padding: const EdgeInsets.all(8),
       child: TextField(
+        onChanged: widget.detectaTexto,
         cursorColor: AppColors.greyblue,
         cursorWidth: 1,
         textInputAction: TextInputAction.done,
