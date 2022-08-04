@@ -47,20 +47,17 @@ class _PaginaBuscaState extends State<PaginaBusca> {
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  SearchBarWidget(detectaTexto: funcionalidadeBarraPesquisa),
-                  Padding(
+                  SearchBarWidget(
+                    detectaTexto: funcionalidadeBarraPesquisa,
+                    reset: funcionalidadeResetLivros,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.7,
                     padding: const EdgeInsets.only(top: 64.0),
                     child: Wrap(
                         children: lista_livros_local
                             .map((livro) => CapaLivroWidget(livro: livro))
                             .toList()),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 520),
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 16.0),
-                      child: BotaoFunilWidget(),
-                    ),
                   ),
                 ],
               ),
@@ -87,11 +84,15 @@ class _PaginaBuscaState extends State<PaginaBusca> {
 
   void funcionalidadeCascata(String query) {
     List<Livro> livros = repo.pegarLivroPorMateria(query);
-    // livros.forEach((element) {
-    //   print(element.titulo);
-    // });
+
     setState(() {
       lista_livros_local = livros;
+    });
+  }
+
+  void funcionalidadeResetLivros() {
+    setState(() {
+      lista_livros_local = repo.livros;
     });
   }
 }
