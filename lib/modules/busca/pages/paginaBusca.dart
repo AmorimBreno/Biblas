@@ -34,45 +34,45 @@ class PaginaBusca extends StatelessWidget {
                 height: 1000,
                 child: const MenuCascataWidget(),
               ),
-              Stack(
-                alignment: Alignment.topCenter,
-                children: [
-                  TypeAheadField(
-                    onSuggestionSelected: (Livro suggestion) {
-                      () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return PaginaLivros(livro: suggestion);
-                        }));
-                      };
-                    },
-                    itemBuilder: (context, Livro suggestion) {
-                      return Wrap(
-                          children: repo.livros
-                              .map((suggestion) =>
-                                  CapaLivroWidget(livro: suggestion))
-                              .toList());
-                    },
-                    suggestionsCallback: (String pattern) {
-                      return RepositoryMock().pegarLivroPorTitulo(pattern);
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 64.0),
-                    child: Wrap(
-                        children: repo.livros
-                            .map((livro) => CapaLivroWidget(livro: livro))
-                            .toList()),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 520),
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 16.0),
-                      child: BotaoFunilWidget(),
-                    ),
-                  ),
-                ],
-              ),
+              // Stack(
+              //   alignment: Alignment.topCenter,
+              //   children: [
+              //     TypeAheadField(
+              //       onSuggestionSelected: (Livro suggestion) {
+              //         () {
+              //           Navigator.push(context,
+              //               MaterialPageRoute(builder: (context) {
+              //             return PaginaLivros(livro: suggestion);
+              //           }));
+              //         };
+              //       },
+              //       itemBuilder: (context, Livro suggestion) {
+              //         return Wrap(
+              //             children: repo.livros
+              //                 .map((suggestion) =>
+              //                     CapaLivroWidget(livro: suggestion))
+              //                 .toList());
+              //       },
+              //       suggestionsCallback: (String pattern) {
+              //         return RepositoryMock().pegarLivroPorTitulo(pattern);
+              //       },
+              //     ),
+              //     Padding(
+              //       padding: const EdgeInsets.only(top: 64.0),
+              //       child: Wrap(
+              //           children: repo.livros
+              //               .map((livro) => CapaLivroWidget(livro: livro))
+              //               .toList()),
+              //     ),
+              //     Container(
+              //       margin: const EdgeInsets.only(left: 520),
+              //       child: const Padding(
+              //         padding: EdgeInsets.only(top: 16.0),
+              //         child: BotaoFunilWidget(),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               Container(
                   margin: const EdgeInsets.only(right: 20),
                   child: const IconeProcessosWidget())

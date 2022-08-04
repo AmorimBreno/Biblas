@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const backgroundColor = Color(0xFFE5E5E5);
+  static const backgroundColor = Color.fromARGB(255, 255, 255, 255);
   static const darkblue = Color(0xFF004684);
   static const lightblue = Color(0xFF86B5D9);
   static const emposse = Color.fromRGBO(51, 0, 255, 1);
