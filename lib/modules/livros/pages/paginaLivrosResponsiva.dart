@@ -10,8 +10,7 @@ import 'package:projeto_biblas/modules/livros/widgets/resumoLivro_widget.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
 
 import '../../../shared/themes/app_colors.dart';
-import '../widgets/TermosCondicoesAgendar_Widget.dart';
-import '../widgets/TermosCondicoes_Widget.dart';
+import '../widgets/termosCondicoes_widget.dart';
 
 class PaginaLivros extends StatefulWidget {
   const PaginaLivros({Key? key, required this.livro}) : super(key: key);
@@ -121,7 +120,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                 ),
               ),
             ),
-            Center(child: TermosCondicoesWidget())
+            Center(child: TermosCondicoesWidget(true))
           ]),
         ),
         Visibility(
@@ -143,7 +142,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                 ),
               ),
             ),
-            Center(child: TermosCondicoesWidgetAgendar())
+            Center(child: TermosCondicoesWidget(false))
           ]),
         )
       ],

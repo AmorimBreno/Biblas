@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:projeto_biblas/modules/livros/widgets/TermosWidget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.dart';
+import 'package:projeto_biblas/modules/livros/widgets/termos_widget.dart';
 import 'package:projeto_biblas/my_app.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
@@ -13,15 +13,20 @@ import 'package:projeto_biblas/shared/themes/text_styles.dart';
 import '../../meus_processos/pages/processos_pagina.dart';
 
 class TermosCondicoesWidget extends StatefulWidget {
-  TermosCondicoesWidget();
+  TermosCondicoesWidget(this.termo);
+
+  bool termo; //1 = Solicitar | 2 = Agendar
 
   @override
-  State<TermosCondicoesWidget> createState() => _TermosCondicoesWidgetState();
+  // ignore: no_logic_in_create_state
+  State<TermosCondicoesWidget> createState() =>
+      _TermosCondicoesWidgetState(termo);
 }
 
 class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
-  _TermosCondicoesWidgetState();
-  bool isVisivel = true;
+  _TermosCondicoesWidgetState(this.isVisivelTermos);
+  bool isVisivelTudo = true;
+  late bool isVisivelTermos;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,7 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
         larguraTela < 800 ? larguraTela * 0.8 : 0.45 * larguraTela;
 
     return Visibility(
-      visible: isVisivel,
+      visible: isVisivelTudo,
       child: Stack(
         children: [
           Container(
@@ -65,14 +70,17 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
                       ? alturaContainerBranco * 0.05
                       : alturaContainerBranco * 0.1,
                 ),
-                child: ListView.builder(
-                    itemCount: 3,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: TermosWidget(),
-                      );
-                    }),
+                child: Visibility(
+                  visible: isVisivelTermos,
+                  child: ListView.builder(
+                      itemCount: 3,
+                      itemBuilder: (context, int index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: TermosWidget(),
+                        );
+                      }),
+                ),
               )),
             ),
           ),
@@ -94,12 +102,26 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                    onTap: () => Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const ProcessosPage();
-                        })),
+                    onTap: () => setState(() {
+                          isVisivelTermos == true
+                              ? Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                  return const ProcessosPage();
+                                }))
+                              : isVisivelTermos = true;
+                        }),
                     child: const BotoesLivros(texto: "CONFIRMAR")),
-              ))
+              )),
+          Visibility(
+            visible: !isVisivelTermos,
+            child: Positioned(
+                right: larguraContainerBranco / 2,
+                top: alturaContainerBranco / 2,
+                child: Text(
+                  "Calendário",
+                  style: AppTextStyles.titulos,
+                )),
+          )
         ],
       ),
     );
