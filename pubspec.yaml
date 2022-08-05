@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_typeahead: ^4.0.0
 
+
+  animations: ^1.1.2
+
+  table_calendar: ^3.0.2
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

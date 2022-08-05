@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:projeto_biblas/database/repository_mock/repository_mock.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/menuCascata_widget.dart';
@@ -6,6 +7,7 @@ import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
+import '../../livros/pages/paginaLivros.dart';
 import '../widgets/capaLivro_widget.dart';
 import '../widgets/iconeProcessos_widget.dart';
 
@@ -47,6 +49,7 @@ class _PaginaBuscaState extends State<PaginaBusca> {
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
+
                   SearchBarWidget(
                     detectaTexto: funcionalidadeBarraPesquisa,
                     reset: funcionalidadeResetLivros,

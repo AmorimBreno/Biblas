@@ -10,7 +10,7 @@ class IconeProcessosWidget extends StatelessWidget {
       icon: const Icon(Icons.history, size: 28),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const ProcessosPage();
+          return const PaginaProcessos();
         }));
       },
     );
