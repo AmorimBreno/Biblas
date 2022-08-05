@@ -236,7 +236,6 @@ class RepositoryMock {
         2010,
         "Este livro é orientado ao iniciante em programação. Os conceitos básicos de programação, como expressões, variáveis, repetições, decisões, listas, dicionários, conjuntos, funções, arquivos, classes, objetos e banco de dados com SQLite 3 são apresentados um a um com exemplos e exercícios. A obra visa a explorar a programação de computadores como ferramenta do dia a dia. Ela pode ser lida durante um curso de introdução à programação de computadores e usada como guia de estudo para autodidatas. Para aproveitamento pleno do conteúdo, apenas conhecimentos básicos de informática, como digitar textos, abrir e salvar arquivos, são suficientes. Todo software utilizado no livro pode ser baixado gratuitamente, sendo executado em Windows, Linux e Mac OS X. Embora a linguagem Python (versão +3.7) seja muito poderosa e repleta de recursos modernos de programação, este livro não pretende ensinar a linguagem em si, mas ensinar a programar. Alguns recursos da linguagem não foram utilizados para privilegiar os exercícios de lógica de programação e oferecer uma preparação mais ampla ao leitor para outras linguagens. Essa escolha não impediu a apresentação de recursos poderosos da linguagem, e, embora o livro não seja fundamentalmente uma obra de referência, o leitor encontrará várias notas e explicações de características específicas do Python, além da lógica de programação.",
         "Segunda (Junho/2014)",
-
         [
           "ciclo básico",
           "programação",
@@ -246,7 +245,6 @@ class RepositoryMock {
         ],
         'assets/images/introducao_a_programacao_com_python.png',
         true),
-
     Livro(
         "Resistência dos Materiais",
         "EM001",
@@ -254,7 +252,6 @@ class RepositoryMock {
         2013,
         "Referência na área, Hibbeler aborda a teoria e os princípios fundamentais da resistência dos materiais de maneira clara. Repleta de exemplos ilustrativos e exercícios, Resistência dos materiais aborda situações reais a fim de estimular o interesse do estudante pelo assunto, apresentando seções que orientam a solução de problemas e fornecendo um resumo dos conceitos-chave. Totalmente revisada, esta edição traz problemas novos de diferentes níveis de dificuldade, além de novas fotografias, que facilitam a assimilação de conteúdo. A didática de Hibbeler, já reconhecida e valorizada, é outro diferencial da obra. Esta 10ª edição utiliza o Sistema Internacional de Unidades (SI), favorecendo a aprendizagem de estudantes de cursos de engenharia mecânica, civil, metalúrgica, química e elétrica, e a visualização de conceitos complexos.",
         "Sétima",
-
         [
           "engenharia",
           "materiais",
@@ -264,7 +261,6 @@ class RepositoryMock {
         ],
         'assets/images/resistencia_dos_materiais.png',
         true),
-
     Livro(
         'Cálculo',
         'CB001',
@@ -272,17 +268,14 @@ class RepositoryMock {
         2013,
         'Cálculo foi escrito originalmente na forma de um curso. Sempre dando ênfase à compreensão dos conceitos, o autor inicia a obra oferecendo uma visão geral do assunto para, em seguida, apresentá-lo em detalhes, por meio da formulação de problemas, exercícios, tabelas e gráficos. A obra está dividida em dois volumes (Vol. 1 - capítulos 1 a 8 e Vol. 2 - capítulos 9 a 17). A 7ª edição de Cálculo traz diversas inovações em relação à edição anterior. Alguns tópicos foram reescritos para proporcionar clareza e motivação; novos exemplos foram adicionados; soluções de parte dos exemplos foram ampliadas; dados de exemplos e exercícios readequados. Revista e atualizada, a obra mantém o espírito das edições anteriores, apresentando exercícios graduados, com progressão cuidadosamente planejada dos conceitos básicos até problemas complexos e desafiadores. Neste volume: Funções e Modelos, Limites e Derivadas, Regras de Derivação, Aplicações de Derivação, Integrais, Aplicações de Integração, Técnicas de Integração e Mais Aplicações de Integração',
         'Tradução da Sétima Edição Norte Americana',
-
         [
           'ciclo básico',
           'cálculo',
           'engenharia',
           'Cálculo Diferencial e Integral'
         ],
-        
         'assets/images/calculo.png',
         false),
-
     Livro(
         'A Estatística Básica e sua Prática',
         'AM001',
@@ -290,11 +283,9 @@ class RepositoryMock {
         2017,
         'A nova e aprimorada edição de A Estatística Básica e sua Prática tem como objetivo auxiliar os estudantes a desenvolver os procedimentos habituais na área e a seguir o raciocínio estatístico, tanto no meio acadêmico, como no mercado de trabalho. Ao aliar o conhecimento técnico à prática da resolução de problemas, o livro promove a autonomia e o olhar criativo dos estudantes em seu primeiro contato com a Estatística, formando uma base sólida para os futuros profissionais e pesquisadores. O texto se destaca pela versatilidade do conteúdo e pela possibilidade de ser utilizado juntamente com qualquer tipo de tecnologia para produção de cálculos e gráficos. Com linguagem moderna e acessível, esta obra oferece ao leitor um caminho para um estudo direcionado e bem-sucedido do tema. Como destaque, a obra traz o acesso gratuito a um conjunto de videoaulas exclusivas, com tópicos essenciais de Estatística.',
         'Sétima',
-
         ['Estatística', 'administração'],
         'assets/images/a_estatistica_basica_e_sua_pratica.jpg',
         true),
-
     Livro(
         "A Nova Contabilidade: Convergência ao Padrão Internacional",
         "AM002",
@@ -305,7 +296,6 @@ class RepositoryMock {
         ["administração", "economia", "Contabilidade Gerencial"],
         'assets/images/a_nova_contabilidade_convergencia_ao_padrao_internacional.jpg',
         true),
-
     Livro(
         "Mecânica dos solos e suas aplicações",
         "EM001",
@@ -316,7 +306,6 @@ class RepositoryMock {
         ["engenharia", "civil", "geografia"],
         "assets/images/mecanica_dos_solos_e_suas_aplicacoes.jpg",
         true),
-
     Livro(
         "Design de identidade da marca: Guia Essencial para Toda a Equipe de Gestão de Marcas",
         "DS001",
@@ -327,7 +316,6 @@ class RepositoryMock {
         ["design", "marketing", "marcas", "Marketing"],
         "assets/images/design_de_identidade_da_marca_guia_essencial_para_toda_a_equipe_de_gestão_de_marcas.jpg",
         true),
-
     Livro(
         "Criatividade S.A.: Superando as forças invisíveis que ficam no caminho da verdadeira inspiração.",
         "DS002",
@@ -380,7 +368,6 @@ class RepositoryMock {
         1998,
         "Um best seller de quase três décadas, este livro mergulha nas práticas do Sistema Toyota de Produção, incluindo bases teóricas e métodos de implementação. A edição clássica está aqui atualizada com novos materiais. Figura fundamental no processo de introdução do Just-in-Time nos Estados Unidos, Yasuhiro Monden explica lógica e a metodologia do STP.",
         "Quarta",
-
         [
           "engenharia",
           "produção",
@@ -389,7 +376,6 @@ class RepositoryMock {
         ],
         "assets/images/sistema_toyota_de_producao_uma_abordgem_integrada_ao_just_in_time.jpg",
         true),
-
   ];
 
   //Construtor

@@ -7,7 +7,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:projeto_biblas/database/usuario/usuario_singleton.dart';
 import '../../../database/modules/livro/livro.dart';
-import '../../livros/pages/paginaLivros.dart';
+import '../../livros/pages/paginaLivrosResponsiva.dart';
 import '../../meus_processos/pages/processos_pagina.dart';
 import '../pages/paginaBusca.dart';
 

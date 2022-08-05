@@ -7,7 +7,7 @@ import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
-import '../../livros/pages/paginaLivros.dart';
+import '../../livros/pages/paginaLivrosResponsiva.dart';
 import '../widgets/capaLivro_widget.dart';
 import '../widgets/iconeProcessos_widget.dart';
 
