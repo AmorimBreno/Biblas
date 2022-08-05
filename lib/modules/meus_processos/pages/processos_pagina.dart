@@ -4,6 +4,7 @@ import 'package:projeto_biblas/database/repository_mock/repository_mock.dart';
 import 'package:projeto_biblas/modules/meus_processos/widgets/blocoLivro_widget.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
+import 'package:projeto_biblas/shared/widgets/iconeHome_widget.dart';
 
 class PaginaProcessos extends StatelessWidget {
   const PaginaProcessos({Key? key}) : super(key: key);
@@ -57,8 +58,11 @@ class PaginaProcessos extends StatelessWidget {
       body: ListView(
         children: [
           const AppBarMaua(),
-          const SizedBox(
-            height: 73,
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 50),
+            alignment: Alignment.centerLeft,
+            height: 70,
+            child: const IconeHomeWidget(),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 61),
