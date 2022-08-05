@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_biblas/modules/livros/widgets/tags_widget.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 
 import '../../../database/modules/livro/livro.dart';
@@ -104,12 +105,21 @@ class InfoLivrosWidget extends StatelessWidget {
                         )
                       ])),
                 ),
-                Row(children: [
-                  Text("Tags: ",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: letraResto)),
-                  Container()
-                ]),
+                Row(
+                  children: [
+                    Text("Tags: ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: letraResto)),
+                    Container(
+                      height: 20,
+                      width: larguraTela > 800 ? 450 : larguraTela * 0.5,
+                      color: Colors.transparent,
+                      child: TagsWidget(
+                        tags: livro.tags,
+                      ),
+                    ),
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 32.0),
                   child: RichText(
