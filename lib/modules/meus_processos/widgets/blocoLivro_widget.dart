@@ -7,22 +7,18 @@ import 'package:projeto_biblas/shared/themes/text_styles.dart';
 import '../../../database/repository_mock/repository_mock.dart';
 
 class BlocoLivro extends StatelessWidget {
-  final String caminhoImagem;
-  final String tituloLivro;
-  final String codigoLivro;
+  final int indice;
   final String dataLimite;
   final String dataRetirada;
-  final List<Livro> teste = RepositoryMock().livros;
+  final List<Livro> repositorioLivros = RepositoryMock().livros;
   final LivroSituacao situacaoLivro; // EM POSSE, DEVOLVIDO, ATRASADO
 
   BlocoLivro(
       {Key? key,
-      required this.caminhoImagem,
-      required this.tituloLivro,
-      required this.codigoLivro,
       required this.dataLimite,
       required this.dataRetirada,
-      required this.situacaoLivro})
+      required this.situacaoLivro,
+      required this.indice})
       : super(key: key);
 
   @override
@@ -50,8 +46,9 @@ class BlocoLivro extends StatelessWidget {
                       const BoxConstraints(maxWidth: 150, maxHeight: 215),
                   child: Container(
                     decoration: BoxDecoration(
-                        image:
-                            DecorationImage(image: AssetImage(caminhoImagem))),
+                        image: DecorationImage(
+                            image: AssetImage(
+                                repositorioLivros[indice].imagemLivro))),
                   ),
                 ),
                 const SizedBox(
@@ -63,8 +60,10 @@ class BlocoLivro extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(tituloLivro, style: AppTextStyles.titulos),
-                          Text(codigoLivro, style: AppTextStyles.titulosBold)
+                          Text(repositorioLivros[indice].titulo,
+                              style: AppTextStyles.titulos),
+                          Text('#${repositorioLivros[indice].codigo}',
+                              style: AppTextStyles.titulosBold)
                         ],
                       ),
                       const Divider(

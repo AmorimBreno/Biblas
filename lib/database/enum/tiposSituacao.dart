@@ -20,7 +20,7 @@ Text tiposSituacao(LivroSituacao situacao) {
       return const Text('RESERVADO',
           style: TextStyle(fontSize: 32, color: AppColors.reservado));
     case LivroSituacao.FILA:
-      return const Text('FILA: X',
+      return const Text('FILA: 4',
           style: TextStyle(fontSize: 32, color: AppColors.fila));
     default:
       return const Text('ERRO',

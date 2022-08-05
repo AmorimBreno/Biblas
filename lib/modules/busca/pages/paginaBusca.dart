@@ -45,7 +45,7 @@ class _PaginaBuscaState extends State<PaginaBusca> {
                 width: 500,
                 height: 1000,
                 child: MenuCascataWidget(selecionarTag: funcionalidadeCascata),
-              ),
+              )
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
@@ -64,6 +64,7 @@ class _PaginaBuscaState extends State<PaginaBusca> {
                   ),
                 ],
               ),
+
               Container(
                   margin: const EdgeInsets.only(right: 20),
                   child: const IconeProcessosWidget())
