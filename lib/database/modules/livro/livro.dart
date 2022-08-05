@@ -11,10 +11,9 @@ class Livro {
   final String edicao; //Edição do livro
   final List<String> tags;
   final String imagemLivro;
-
-  String RAultimoAluno = "Nenhum"; //RA do último aluno que pegou o livro
+  final bool disponibilidade;
 
   //construtor
   Livro(this.titulo, this.codigo, this.autor, this.lancamento, this.sinopse,
-      this.edicao, this.tags, this.imagemLivro);
+      this.edicao, this.tags, this.imagemLivro, this.disponibilidade);
 }
