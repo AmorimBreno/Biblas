@@ -16,7 +16,7 @@ import '../../meus_processos/pages/processos_pagina.dart';
 class TermosCondicoesWidget extends StatefulWidget {
   TermosCondicoesWidget(this.termo);
 
-  bool termo; //1 = Solicitar | 2 = Agendar
+  bool termo;
 
   @override
   // ignore: no_logic_in_create_state
@@ -40,6 +40,18 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
     const double alturaContainerBranco = 600;
     final double larguraContainerBranco =
         larguraTela < 800 ? larguraTela * 0.8 : 0.45 * larguraTela;
+
+    final List<String> titulos = [
+      'Penalidade por Atraso na Devolução',
+      'Orientações Para Acesso',
+      'Atenção Usuário'
+    ];
+
+    final List<String> conteudo = [
+      'O prazo de devolução de qualquer livro é de 7(sete) dias, após a retirada. Sendo que a cada dia posterior uma multa de 1 real é aplicada e salva no seu registro academico, sendo cobrada na mensalidade da faculdade.',
+      'São permitidas 2(duas) renovações on-line no periodo letivo e 6(seis) renovações no período de férias. O envio de e-mails é uma forma de lembrar o usuário da data de devolução.',
+      'O envio de e-mails não isenta a multa.'
+    ];
 
     return Visibility(
       visible: isVisivelTudo,
@@ -81,7 +93,10 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
                       itemBuilder: (context, int index) {
                         return Padding(
                           padding: const EdgeInsets.only(top: 8.0),
-                          child: TermosWidget(),
+                          child: TermosWidget(
+                            titulo: titulos[index],
+                            conteudo: conteudo[index],
+                          ),
                         );
                       }),
                 ),
