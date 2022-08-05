@@ -11,10 +11,22 @@ import '../../livros/pages/paginaLivros.dart';
 import '../widgets/capaLivro_widget.dart';
 import '../widgets/iconeProcessos_widget.dart';
 
-class PaginaBusca extends StatelessWidget {
+class PaginaBusca extends StatefulWidget {
   PaginaBusca({Key? key}) : super(key: key);
 
+  @override
+  State<PaginaBusca> createState() => _PaginaBuscaState();
+}
+
+class _PaginaBuscaState extends State<PaginaBusca> {
   final RepositoryMock repo = RepositoryMock();
+  late List<Livro> lista_livros_local;
+
+  @override
+  void initState() {
+    super.initState();
+    lista_livros_local = repo.livros;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,44 +44,23 @@ class PaginaBusca extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 width: 500,
                 height: 1000,
-                child: const MenuCascataWidget(),
+                child: MenuCascataWidget(selecionarTag: funcionalidadeCascata),
               ),
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  TypeAheadField(
-                    onSuggestionSelected: (Livro suggestion) {
-                      () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return PaginaLivros(livro: suggestion);
-                        }));
-                      };
-                    },
-                    itemBuilder: (context, Livro suggestion) {
-                      return Wrap(
-                          children: repo.livros
-                              .map((suggestion) =>
-                                  CapaLivroWidget(livro: suggestion))
-                              .toList());
-                    },
-                    suggestionsCallback: (String pattern) {
-                      return RepositoryMock().pegarLivroPorTitulo(pattern);
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 64.0),
-                    child: Wrap(
-                        children: repo.livros
-                            .map((livro) => CapaLivroWidget(livro: livro))
-                            .toList()),
+
+                  SearchBarWidget(
+                    detectaTexto: funcionalidadeBarraPesquisa,
+                    reset: funcionalidadeResetLivros,
                   ),
                   Container(
-                    margin: const EdgeInsets.only(left: 520),
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 16.0),
-                      child: BotaoFunilWidget(),
-                    ),
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    padding: const EdgeInsets.only(top: 64.0),
+                    child: Wrap(
+                        children: lista_livros_local
+                            .map((livro) => CapaLivroWidget(livro: livro))
+                            .toList()),
                   ),
                 ],
               ),
@@ -82,5 +73,29 @@ class PaginaBusca extends StatelessWidget {
       ),
       backgroundColor: AppColors.backgroundColor,
     );
+  }
+
+  void funcionalidadeBarraPesquisa(String query) {
+    List<Livro> livros = repo.pegarLivroPorTitulo(query);
+    // livros.forEach((element) {
+    //   print(element.titulo);
+    // });
+    setState(() {
+      lista_livros_local = livros;
+    });
+  }
+
+  void funcionalidadeCascata(String query) {
+    List<Livro> livros = repo.pegarLivroPorMateria(query);
+
+    setState(() {
+      lista_livros_local = livros;
+    });
+  }
+
+  void funcionalidadeResetLivros() {
+    setState(() {
+      lista_livros_local = repo.livros;
+    });
   }
 }
