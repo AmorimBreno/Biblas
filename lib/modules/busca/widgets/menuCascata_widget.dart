@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/modules/menu_cascata/construtorBlocos.dart';
-import 'package:projeto_biblas/modules/busca/pages/paginaBusca.dart';
 
 import '../../../database/repository_mock/repository_mock.dart';
 

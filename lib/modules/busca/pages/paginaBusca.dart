@@ -83,6 +83,7 @@ class _PaginaBuscaState extends State<PaginaBusca> {
   }
 
   void funcionalidadeCascata(String query) {
+    print(query);
     List<Livro> livros = repo.pegarLivroPorMateria(query);
 
     setState(() {
