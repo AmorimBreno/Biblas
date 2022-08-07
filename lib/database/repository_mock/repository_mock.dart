@@ -495,7 +495,9 @@ class RepositoryMock {
     for (Livro livro in livros) {
       bool checker = true;
       for (String parteNome in nome.split(' ')) {
-        if (!livro.titulo.toLowerCase().contains(parteNome.toLowerCase())) {
+        if (!_tirarAcento(livro.titulo)
+            .toLowerCase()
+            .contains(parteNome.toLowerCase())) {
           checker = false;
         }
       }
