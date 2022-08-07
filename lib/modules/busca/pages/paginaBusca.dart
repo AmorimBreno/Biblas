@@ -42,14 +42,13 @@ class _PaginaBuscaState extends State<PaginaBusca> {
               Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                width: 500,
-                height: 1000,
+                width: MediaQuery.of(context).size.width * 0.2,
+                height: MediaQuery.of(context).size.width * 0.4,
                 child: MenuCascataWidget(selecionarTag: funcionalidadeCascata),
               ),
               Stack(
                 alignment: Alignment.topCenter,
                 children: [
-
                   SearchBarWidget(
                     detectaTexto: funcionalidadeBarraPesquisa,
                     reset: funcionalidadeResetLivros,
@@ -64,10 +63,7 @@ class _PaginaBuscaState extends State<PaginaBusca> {
                   ),
                 ],
               ),
-
-              Container(
-                  margin: const EdgeInsets.only(right: 20),
-                  child: const IconeProcessosWidget())
+              const IconeProcessosWidget()
             ],
           ),
         ],

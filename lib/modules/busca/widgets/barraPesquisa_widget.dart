@@ -19,11 +19,12 @@ class InputPesquisa extends State<SearchBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 500,
-      height: 50,
+      width: MediaQuery.of(context).size.width * (5 / 15),
+      height: MediaQuery.of(context).size.width * (5 / 150),
       color: Colors.transparent,
       padding: const EdgeInsets.all(8),
       child: TextField(
+        style: TextStyle(fontSize: MediaQuery.of(context).size.width / (100)),
         textAlignVertical: TextAlignVertical.top,
         controller: _textControler,
         onSubmitted: widget.detectaTexto,
@@ -45,13 +46,15 @@ class InputPesquisa extends State<SearchBarWidget> {
                       _textControler.clear();
                       widget.reset();
                     },
-                    icon: const Icon(Icons.clear, size: 8),
+                    icon: Icon(Icons.clear,
+                        size: MediaQuery.of(context).size.width * (5 / 750)),
                   ),
                 )
               : null,
-          suffixIcon: const Icon(
+          suffixIcon: Icon(
             Icons.search,
             color: Colors.black,
+            size: MediaQuery.of(context).size.width * (5 / 300),
           ),
         ),
       ),
