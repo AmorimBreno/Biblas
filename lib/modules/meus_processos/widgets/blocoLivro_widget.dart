@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/enum/livroSituacao_enum.dart';
 import 'package:projeto_biblas/database/enum/tiposSituacao.dart';
 import 'package:projeto_biblas/database/modules/livro/livro.dart';
+import 'package:projeto_biblas/modules/livros/pages/paginaLivrosResponsiva.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
 
 import '../../../database/repository_mock/repository_mock.dart';
@@ -36,7 +37,13 @@ class BlocoLivro extends StatelessWidget {
             ]),
         // onPressed: () {},
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return PaginaLivros(
+                livro: repositorioLivros[1],
+              );
+            }));
+          },
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
