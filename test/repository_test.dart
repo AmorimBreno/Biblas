@@ -24,7 +24,8 @@ void main() {
   });*/
 
   test("teste pegarLivroPorMateria", () {
-    expect(repository.pegarLivroPorMateria("cálculo"), [repository.livros[2]]);
+    expect(repository.pegarLivroPorMateria("Algoritmos e Programação"),
+        [repository.livros[0]]);
   });
   test("teste pegarLivroPorAutor", () {
     expect(repository.pegarLivroPorAutor("Nilo Ney Corinho Menezes"),
@@ -45,4 +46,9 @@ void main() {
         [repository.livros[1], repository.livros[5]]);
     expect(repository.pegarLivroPorTitulo("I am Brancas 😎"), []);
   });
+  /*test("teste tirarAcento", () {
+    expect(repository.tirarAcento("olá"), "ola");
+    expect(repository.tirarAcento("algoritmos e programação"),
+        "algoritmos e programacao");
+  }); => virou método privado*/
 }

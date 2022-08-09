@@ -241,7 +241,7 @@ class RepositoryMock {
           "programação",
           "engenharia",
           "computação",
-          "Algoritmos e Programação"
+          "algoritmos e programação"
         ],
         'assets/images/introducao_a_programacao_com_python.png',
         true),
@@ -257,7 +257,7 @@ class RepositoryMock {
           "materiais",
           "civil",
           "segundo ano",
-          "Resistência dos Materiais"
+          "resistência dos materiais"
         ],
         'assets/images/resistencia_dos_materiais.png',
         true),
@@ -272,7 +272,7 @@ class RepositoryMock {
           'ciclo básico',
           'cálculo',
           'engenharia',
-          'Cálculo Diferencial e Integral'
+          'cálculo diferencial e integral I'
         ],
         'assets/images/calculo.png',
         false),
@@ -283,7 +283,7 @@ class RepositoryMock {
         2017,
         'A nova e aprimorada edição de A Estatística Básica e sua Prática tem como objetivo auxiliar os estudantes a desenvolver os procedimentos habituais na área e a seguir o raciocínio estatístico, tanto no meio acadêmico, como no mercado de trabalho. Ao aliar o conhecimento técnico à prática da resolução de problemas, o livro promove a autonomia e o olhar criativo dos estudantes em seu primeiro contato com a Estatística, formando uma base sólida para os futuros profissionais e pesquisadores. O texto se destaca pela versatilidade do conteúdo e pela possibilidade de ser utilizado juntamente com qualquer tipo de tecnologia para produção de cálculos e gráficos. Com linguagem moderna e acessível, esta obra oferece ao leitor um caminho para um estudo direcionado e bem-sucedido do tema. Como destaque, a obra traz o acesso gratuito a um conjunto de videoaulas exclusivas, com tópicos essenciais de Estatística.',
         'Sétima',
-        ['Estatística', 'administração'],
+        ['estatística', 'administração'],
         'assets/images/a_estatistica_basica_e_sua_pratica.jpg',
         true),
     Livro(
@@ -382,6 +382,18 @@ class RepositoryMock {
   RepositoryMock();
 
   // Métodos
+  String _tirarAcento(String str) {
+    var withDia =
+        'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+    var withoutDia =
+        'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
+
+    for (int i = 0; i < withDia.length; i++) {
+      str = str.replaceAll(withDia[i], withoutDia[i]);
+    }
+
+    return str;
+  }
 
   String _nomeAutor(String nome) {
     // ignore: non_constant_identifier_names
@@ -435,8 +447,12 @@ class RepositoryMock {
   List<Livro> pegarLivroPorMateria(String materia) {
     List<Livro> livrosDaMateria = [];
     for (Livro livro in livros) {
-      if (livro.tags.contains(materia.toLowerCase())) {
-        livrosDaMateria.insert(livrosDaMateria.length, livro);
+      for (String tag in livro.tags) {
+        if (_tirarPontuacao(tag).toLowerCase() ==
+            _tirarPontuacao(materia).toLowerCase()) {
+          livrosDaMateria.insert(livrosDaMateria.length, livro);
+          break;
+        }
       }
     }
     return livrosDaMateria;
@@ -479,7 +495,9 @@ class RepositoryMock {
     for (Livro livro in livros) {
       bool checker = true;
       for (String parteNome in nome.split(' ')) {
-        if (!livro.titulo.toLowerCase().contains(parteNome.toLowerCase())) {
+        if (!_tirarAcento(livro.titulo)
+            .toLowerCase()
+            .contains(parteNome.toLowerCase())) {
           checker = false;
         }
       }
