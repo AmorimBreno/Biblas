@@ -125,7 +125,7 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
                           isVisivelTermos == true
                               ? Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
-                                  return const ProcessosPage();
+                                  return const PaginaProcessos();
                                 }))
                               : isVisivelTermos = true;
                         }),

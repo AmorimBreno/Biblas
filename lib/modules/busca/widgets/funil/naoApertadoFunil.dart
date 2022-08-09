@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/op%C3%A7%C3%B5esFunil.dart';
 import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dart';
 
+import '../../../../shared/themes/app_colors.dart';
+
 class NaoApertadoFunil extends State<BotaoFunilWidget> {
   final color = Colors.black;
   final icon = Icons.menu;
@@ -31,7 +33,7 @@ class NaoApertadoFunil extends State<BotaoFunilWidget> {
               duration: const Duration(milliseconds: 100),
               height: containerHeight,
               width: 150,
-              color: Colors.lightBlue[700],
+              color: AppColors.greyblue,
               padding: const EdgeInsets.all(4),
               child: const Filtros(),
             ),
