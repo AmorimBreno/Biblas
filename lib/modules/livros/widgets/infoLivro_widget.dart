@@ -130,9 +130,14 @@ class InfoLivrosWidget extends StatelessWidget {
                               fontSize: letraResto),
                           children: <TextSpan>[
                         TextSpan(
-                          text: "Disponível",
+                          text: livro.disponibilidade
+                              ? "Disponível"
+                              : "Indisponivel",
                           style: TextStyle(
-                              color: Colors.green, fontSize: letraResto),
+                              color: livro.disponibilidade
+                                  ? Colors.green
+                                  : Colors.red,
+                              fontSize: letraResto),
                         )
                       ])),
                 )
