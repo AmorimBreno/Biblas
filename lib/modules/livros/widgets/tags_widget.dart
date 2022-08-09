@@ -24,6 +24,7 @@ class TagsWidget extends StatelessWidget {
     double letraResto = larguraTela < 800 ? 14.4 : 17;
 
     return ListView.builder(
+      
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Padding(

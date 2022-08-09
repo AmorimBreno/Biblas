@@ -52,14 +52,12 @@ class InfoLivrosWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(2)),
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child:
-                            //**************************CÓDIGO DO LIVRO*************************************
-                            Text(livro.codigo,
-                                style: TextStyle(
-                                    letterSpacing: 2,
-                                    color: Colors.white,
-                                    fontSize: letraTitulo,
-                                    fontWeight: FontWeight.w600)),
+                        child: Text(livro.codigo,
+                            style: TextStyle(
+                                letterSpacing: 2,
+                                color: Colors.white,
+                                fontSize: letraTitulo,
+                                fontWeight: FontWeight.w600)),
                       ),
                     )
                   ],
@@ -79,7 +77,6 @@ class InfoLivrosWidget extends StatelessWidget {
                               fontSize: letraResto),
                           children: <TextSpan>[
                         TextSpan(
-                          // ******************************** LANÇAMENTO DO LIVRO ************************
                           text: livro.lancamento.toString(),
                           style: TextStyle(
                               fontWeight: FontWeight.w100,
@@ -97,7 +94,6 @@ class InfoLivrosWidget extends StatelessWidget {
                               fontSize: letraResto),
                           children: <TextSpan>[
                         TextSpan(
-                          // ******************************** LANÇAMENTO DO LIVRO ************************
                           text: livro.edicao,
                           style: TextStyle(
                               fontWeight: FontWeight.w100,
@@ -105,14 +101,14 @@ class InfoLivrosWidget extends StatelessWidget {
                         )
                       ])),
                 ),
-                Row(
+                Wrap(
                   children: [
                     Text("Tags: ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: letraResto)),
                     Container(
                       height: 20,
-                      width: larguraTela > 800 ? 450 : larguraTela * 0.5,
+                      width: larguraTela > 800 ? 350 : larguraTela * 0.5,
                       color: Colors.transparent,
                       child: TagsWidget(
                         tags: livro.tags,
