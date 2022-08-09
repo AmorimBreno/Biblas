@@ -8,6 +8,7 @@ import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.da
 import 'package:projeto_biblas/modules/livros/widgets/infoLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/resumoLivro_widget.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
+import 'package:projeto_biblas/shared/widgets/iconeHome_widget.dart';
 
 import '../../../shared/themes/app_colors.dart';
 import '../widgets/termosCondicoes_widget.dart';
@@ -50,9 +51,13 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                   width: larguratela > 800 ? 800 : larguratela,
                   child: Column(
                     children: [
-                      const Align(
-                          alignment: Alignment.centerRight,
-                          child: IconeProcessosWidget()),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconeHomeWidget(),
+                          IconeProcessosWidget(),
+                        ],
+                      ),
                       InfoLivrosWidget(livro: livro),
                       Padding(
                         padding: const EdgeInsets.only(top: 32.0, bottom: 16),
@@ -68,7 +73,9 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                                   });
                                 },
                                 child: BotoesLivros(
-                                  texto: "Solicitar",
+                                  texto: livro.disponibilidade
+                                      ? "Solicitar"
+                                      : "Entrar na Fila",
                                 ),
                               ),
                             ),
