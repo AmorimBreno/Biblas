@@ -30,37 +30,22 @@ class InfoLivrosWidget extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Expanded(
-                        flex: 2,
+                SizedBox(
+                  width: 300,
+                  child: Wrap(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
                         child: Text(
                           livro.titulo,
+                          overflow: TextOverflow.clip,
                           style: TextStyle(
                               fontSize: letraTitulo,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: AppColors.darkblue,
-                          borderRadius: BorderRadius.circular(2)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Text(livro.codigo,
-                            style: TextStyle(
-                                letterSpacing: 2,
-                                color: Colors.white,
-                                fontSize: letraTitulo,
-                                fontWeight: FontWeight.w600)),
-                      ),
-                    )
-                  ],
+                    ],
+                  ),
                 ),
                 Text(
                   livro.autor[0],
@@ -101,23 +86,20 @@ class InfoLivrosWidget extends StatelessWidget {
                         )
                       ])),
                 ),
-                Wrap(
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Tags: ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: letraResto)),
-                    Container(
-                      height: 20,
-                      width: larguraTela > 800 ? 350 : larguraTela * 0.5,
-                      color: Colors.transparent,
-                      child: TagsWidget(
-                        tags: livro.tags,
-                      ),
+                    SizedBox(
+                      width: 250,
+                      child: TagsWidget(livro: livro),
                     ),
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 32.0),
+                  padding: const EdgeInsets.only(top: 48.0),
                   child: RichText(
                       text: TextSpan(
                           text: 'Disponibilidade: ',
