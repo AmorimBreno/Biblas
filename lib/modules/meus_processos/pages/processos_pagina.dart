@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/enum/livroSituacao_enum.dart';
 import 'package:projeto_biblas/database/repository_mock/repository_mock.dart';
+import 'package:projeto_biblas/database/usuario/usuario_singleton.dart';
 import 'package:projeto_biblas/modules/meus_processos/widgets/blocoLivro_widget.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
 import 'package:projeto_biblas/shared/widgets/app_bar_widget.dart';
@@ -11,6 +12,7 @@ class PaginaProcessos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UsuarioSingleton usuario = UsuarioSingleton();
     List<String> dataLimites = [
       '04/02/2022',
       '05/02/2022',
@@ -80,12 +82,10 @@ class PaginaProcessos extends StatelessWidget {
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: BlocoLivro(
-                        dataLimite: dataLimites[index],
-                        dataRetirada: dataRetiradas[index],
-                        situacaoLivro: situacoesLivros[index],
-                        indice: index),
+                      livroUsuario: usuario.livros[index],
+                    ),
                   ),
-                  itemCount: RepositoryMock().livros.length,
+                  itemCount: usuario.livros.length,
                 ),
               ],
             ),

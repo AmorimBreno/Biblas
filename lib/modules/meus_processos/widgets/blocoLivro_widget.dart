@@ -2,25 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/enum/livroSituacao_enum.dart';
 import 'package:projeto_biblas/database/enum/tiposSituacao.dart';
 import 'package:projeto_biblas/database/modules/livro/livro.dart';
+import 'package:projeto_biblas/database/modules/livro/livroUsuario.dart';
 import 'package:projeto_biblas/modules/livros/pages/paginaLivrosResponsiva.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
 
 import '../../../database/repository_mock/repository_mock.dart';
 
 class BlocoLivro extends StatelessWidget {
-  final int indice;
-  final String dataLimite;
-  final String dataRetirada;
-  final List<Livro> repositorioLivros = RepositoryMock().livros;
-  final LivroSituacao situacaoLivro; // EM POSSE, DEVOLVIDO, ATRASADO
+  final LivroUsuario livroUsuario; // EM POSSE, DEVOLVIDO, ATRASADO
 
-  BlocoLivro(
-      {Key? key,
-      required this.dataLimite,
-      required this.dataRetirada,
-      required this.situacaoLivro,
-      required this.indice})
-      : super(key: key);
+  const BlocoLivro({
+    Key? key,
+    required this.livroUsuario,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +34,7 @@ class BlocoLivro extends StatelessWidget {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return PaginaLivros(
-                livro: repositorioLivros[1],
+                livro: livroUsuario.livro,
               );
             }));
           },
@@ -54,8 +48,7 @@ class BlocoLivro extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage(
-                                repositorioLivros[indice].imagemLivro))),
+                            image: AssetImage(livroUsuario.livro.imagemLivro))),
                   ),
                 ),
                 const SizedBox(
@@ -67,9 +60,9 @@ class BlocoLivro extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(repositorioLivros[indice].titulo,
+                          Text(livroUsuario.livro.titulo,
                               style: AppTextStyles.titulos),
-                          Text('#${repositorioLivros[indice].codigo}',
+                          Text('#${livroUsuario.livro.codigo}',
                               style: AppTextStyles.titulosBold)
                         ],
                       ),
@@ -88,7 +81,8 @@ class BlocoLivro extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              Text(dataRetirada, style: AppTextStyles.titulos),
+                              Text(livroUsuario.dataRetirada,
+                                  style: AppTextStyles.titulos),
                             ],
                           ),
                           Column(
@@ -98,7 +92,8 @@ class BlocoLivro extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              Text(dataLimite, style: AppTextStyles.titulos),
+                              Text(livroUsuario.dataLimite,
+                                  style: AppTextStyles.titulos),
                             ],
                           ),
                           Column(
@@ -108,7 +103,7 @@ class BlocoLivro extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              tiposSituacao(situacaoLivro),
+                              tiposSituacao(livroUsuario.status),
                             ],
                           ),
                         ],

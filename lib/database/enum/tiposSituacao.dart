@@ -5,8 +5,11 @@ import 'package:projeto_biblas/shared/themes/app_colors.dart';
 Text tiposSituacao(LivroSituacao situacao) {
   switch (situacao) {
     case LivroSituacao.ATRASADO:
-      return const Text('ATRASADO',
-          style: TextStyle(fontSize: 32, color: AppColors.atrasado));
+      return const Text(
+        'ATRASADO\nR\$5,00',
+        style: TextStyle(fontSize: 32, color: AppColors.atrasado),
+        textAlign: TextAlign.center,
+      );
     case LivroSituacao.EMPOSSE:
       return const Text('EM POSSE',
           style: TextStyle(fontSize: 32, color: AppColors.emposse));
