@@ -11,7 +11,15 @@ class LivroUsuario {
   late String dataLimite;
 
   LivroUsuario(this.livro, this.retirada, this.limite, this.status) {
-    dataRetirada = formatDate(retirada, [dd, '/', mm, '/', yyyy]);
-    dataLimite = formatDate(limite, [dd, '/', mm, '/', yyyy]);
+    if (status == LivroSituacao.RETIRAR || status == LivroSituacao.FILA) {
+      dataRetirada = "---";
+    } else {
+      dataRetirada = formatDate(retirada, [dd, '/', mm, '/', yyyy]);
+    }
+    if (status == LivroSituacao.RESERVADO || status == LivroSituacao.FILA) {
+      dataLimite = "---";
+    } else {
+      dataLimite = formatDate(limite, [dd, '/', mm, '/', yyyy]);
+    }
   }
 }

@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/modules/livro/livro.dart';
 import 'package:projeto_biblas/modules/busca/widgets/iconeProcessos_widget.dart';
+import 'package:projeto_biblas/modules/livros/widgets/TermosCondicoesAgendar_Widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/infoLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/resumoLivro_widget.dart';
@@ -127,7 +128,7 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                 ),
               ),
             ),
-            Center(child: TermosCondicoesWidget(true))
+            Center(child: TermosCondicoesWidget(termo: true, livro: livro))
           ]),
         ),
         Visibility(
@@ -149,7 +150,11 @@ class _PaginaLivroResponsivaState extends State<PaginaLivros> {
                 ),
               ),
             ),
-            Center(child: TermosCondicoesWidget(false))
+            Center(
+                child: TermosCondicoesWidget(
+              termo: false,
+              livro: livro,
+            ))
           ]),
         )
       ],

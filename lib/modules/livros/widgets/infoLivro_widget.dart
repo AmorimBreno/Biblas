@@ -93,7 +93,7 @@ class InfoLivrosWidget extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: letraResto)),
                     SizedBox(
-                      width: 250,
+                      width: 300,
                       child: TagsWidget(livro: livro),
                     ),
                   ],

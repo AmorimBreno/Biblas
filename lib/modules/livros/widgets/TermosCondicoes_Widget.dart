@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projeto_biblas/database/enum/livroSituacao_enum.dart';
+import 'package:projeto_biblas/database/modules/livro/livro.dart';
+import 'package:projeto_biblas/database/modules/livro/livroUsuario.dart';
+import 'package:projeto_biblas/database/usuario/usuario_singleton.dart';
 import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/termos_widget.dart';
 import 'package:projeto_biblas/my_app.dart';
@@ -14,20 +18,22 @@ import 'package:table_calendar/table_calendar.dart';
 import '../../meus_processos/pages/processos_pagina.dart';
 
 class TermosCondicoesWidget extends StatefulWidget {
-  TermosCondicoesWidget(this.termo);
-
+  TermosCondicoesWidget({required this.termo, required this.livro});
+  Livro livro;
   bool termo;
 
   @override
   // ignore: no_logic_in_create_state
   State<TermosCondicoesWidget> createState() =>
-      _TermosCondicoesWidgetState(termo);
+      _TermosCondicoesWidgetState(termo, livro, termo);
 }
 
 class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
-  _TermosCondicoesWidgetState(this.isVisivelTermos);
+  _TermosCondicoesWidgetState(this.isVisivelTermos, this.livro, this.solicitar);
+  late Livro livro;
   bool isVisivelTudo = true;
   late bool isVisivelTermos;
+  final bool solicitar;
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
@@ -122,14 +128,28 @@ class _TermosCondicoesWidgetState extends State<TermosCondicoesWidget> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                     onTap: () => setState(() {
+                          UsuarioSingleton usuario = UsuarioSingleton();
                           isVisivelTermos == true
                               ? Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
+                                  usuario.adicionarLivro(LivroUsuario(
+                                      livro,
+                                      solicitar ? DateTime.now() : _focusedDay,
+                                      DateTime.now()
+                                          .add(const Duration(days: 7)),
+                                      solicitar
+                                          ? livro.disponibilidade
+                                              ? LivroSituacao.RETIRAR
+                                              : LivroSituacao.FILA
+                                          : LivroSituacao.RESERVADO));
                                   return const PaginaProcessos();
                                 }))
                               : isVisivelTermos = true;
                         }),
-                    child: const BotoesLivros(texto: "CONFIRMAR")),
+                    child: BotoesLivros(
+                        texto: livro.disponibilidade && isVisivelTermos
+                            ? "CONFIRMAR"
+                            : "POSIÇÃO: 6")),
               )),
           Visibility(
             visible: !isVisivelTermos,

@@ -82,7 +82,8 @@ class PaginaProcessos extends StatelessWidget {
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: BlocoLivro(
-                      livroUsuario: usuario.livros[index],
+                      livroUsuario:
+                          usuario.livros[usuario.livros.length - index - 1],
                     ),
                   ),
                   itemCount: usuario.livros.length,

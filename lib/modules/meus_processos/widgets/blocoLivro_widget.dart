@@ -81,7 +81,10 @@ class BlocoLivro extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              Text(livroUsuario.dataRetirada,
+                              Text(
+                                  livroUsuario.status == LivroSituacao.RESERVADO
+                                      ? '---'
+                                      : livroUsuario.dataRetirada,
                                   style: AppTextStyles.titulos),
                             ],
                           ),
@@ -103,7 +106,8 @@ class BlocoLivro extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              tiposSituacao(livroUsuario.status),
+                              tiposSituacao(livroUsuario.status,
+                                  livroUsuario.dataRetirada),
                             ],
                           ),
                         ],
