@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/modules/menu_cascata/construtorBlocos.dart';
-import 'package:projeto_biblas/modules/busca/pages/paginaBusca.dart';
 
 import '../../../database/repository_mock/repository_mock.dart';
 
 class MenuCascataWidget extends StatefulWidget {
-  const MenuCascataWidget({Key? key}) : super(key: key);
+  final void Function(String) selecionarTag;
+  const MenuCascataWidget({Key? key, required this.selecionarTag})
+      : super(key: key);
 
   @override
   State<MenuCascataWidget> createState() => _MenuCascataState();
@@ -24,10 +25,9 @@ class _MenuCascataState extends State<MenuCascataWidget> {
       return ListTile(
         contentPadding: EdgeInsets.only(left: leftPadding),
         title: Text(bloco.titulo),
-        onTap: () =>
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return PaginaBusca();
-        })),
+        onTap: () {
+          widget.selecionarTag(bloco.titulo);
+        },
       );
     } else {
       return ExpansionTile(
