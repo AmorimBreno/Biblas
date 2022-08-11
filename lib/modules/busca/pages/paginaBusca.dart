@@ -5,6 +5,7 @@ import 'package:projeto_biblas/modules/busca/widgets/funil/botaoFunil_widget.dar
 import 'package:projeto_biblas/modules/busca/widgets/menuCascata_widget.dart';
 import 'package:projeto_biblas/modules/busca/widgets/barraPesquisa_widget.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
+import 'package:projeto_biblas/shared/themes/breakpoints.dart';
 import '../../../database/modules/livro/livro.dart';
 import '../../../shared/widgets/app_bar_widget.dart';
 import '../../livros/pages/paginaLivrosResponsiva.dart';
@@ -57,16 +58,18 @@ class _PaginaBuscaState extends State<PaginaBusca> {
                     ],
                   ),
                   const SizedBox(
-                    height: 32,
+                    height: 64,
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.7,
                     child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        crossAxisSpacing: 32,
-                        mainAxisSpacing: 32,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount:
+                            MediaQuery.of(context).size.width > tabletWidth
+                                ? 4
+                                : 3,
+                        crossAxisSpacing: 64,
+                        mainAxisSpacing: 64,
                       ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) =>

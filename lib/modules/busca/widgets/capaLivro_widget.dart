@@ -14,26 +14,31 @@ class CapaLivroWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 4),
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return PaginaLivros(livro: livro);
-              }));
-            },
-            style: ButtonStyle(
-                elevation: MaterialStateProperty.all(0.0),
-                backgroundColor: MaterialStateProperty.all(Colors.transparent)),
-            child: Image.asset(
-              livro.imagemLivro,
-              height: MediaQuery.of(context).size.width / (1 * 7),
-              width: MediaQuery.of(context).size.width / (1.5 * 7),
-              filterQuality: FilterQuality.high,
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return PaginaLivros(livro: livro);
+                }));
+              },
+              style: ButtonStyle(
+                  elevation: MaterialStateProperty.all(0.0),
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.transparent)),
+              child: Image.asset(
+                livro.imagemLivro,
+                height: MediaQuery.of(context).size.width / (7),
+                width: MediaQuery.of(context).size.width / (1.5 * 7),
+                filterQuality: FilterQuality.high,
+              ),
             ),
           ),
         ),
-        SizedBox(
+        Container(
+          margin: const EdgeInsets.only(left: 16),
+          height: 40,
           width: MediaQuery.of(context).size.width / (1.5 * 7),
           child: Text(
             livro.titulo,

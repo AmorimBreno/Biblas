@@ -491,10 +491,9 @@ class RepositoryMock {
 
   List<Livro> pegarLivroPorTitulo(String nome) {
     List<Livro> livrosComTitulo = [];
-    nome = _tirarPontuacao(nome);
     for (Livro livro in livros) {
-      bool checker = true;
-      for (String parteNome in nome.split(' ')) {
+      bool checker = true;     
+      for (String parteNome in _tirarPontuacao(nome.toLowerCase()).split(' ')) {
         if (!_tirarAcento(livro.titulo)
             .toLowerCase()
             .contains(parteNome.toLowerCase())) {
