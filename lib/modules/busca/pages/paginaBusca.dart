@@ -39,12 +39,15 @@ class _PaginaBuscaState extends State<PaginaBusca> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                width: MediaQuery.of(context).size.width * 0.2,
-                height: MediaQuery.of(context).size.width * 0.4,
-                child: MenuCascataWidget(selecionarTag: funcionalidadeCascata),
+              Expanded(
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                  width: MediaQuery.of(context).size.width * 0.2,
+                  height: MediaQuery.of(context).size.width * 0.4,
+                  child:
+                      MenuCascataWidget(selecionarTag: funcionalidadeCascata),
+                ),
               ),
               Column(
                 children: [
