@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_biblas/database/enum/livroSituacao_enum.dart';
 import 'package:projeto_biblas/database/enum/tiposSituacao.dart';
-import 'package:projeto_biblas/database/modules/livro/livro.dart';
 import 'package:projeto_biblas/database/modules/livro/livroUsuario.dart';
 import 'package:projeto_biblas/modules/livros/pages/paginaLivrosResponsiva.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
-
-import '../../../database/repository_mock/repository_mock.dart';
 
 class BlocoLivro extends StatelessWidget {
   final LivroUsuario livroUsuario; // EM POSSE, DEVOLVIDO, ATRASADO
@@ -60,8 +57,16 @@ class BlocoLivro extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(livroUsuario.livro.titulo,
-                              style: AppTextStyles.titulos),
+                          Flexible(
+                            child: Text(
+                              livroUsuario.livro.titulo,
+                              style: AppTextStyles.titulos,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
                           Text('#${livroUsuario.livro.codigo}',
                               style: AppTextStyles.titulosBold)
                         ],

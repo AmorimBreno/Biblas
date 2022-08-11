@@ -36,7 +36,6 @@ class _PaginaBuscaState extends State<PaginaBusca> {
         children: [
           const AppBarMaua(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -46,24 +45,40 @@ class _PaginaBuscaState extends State<PaginaBusca> {
                 height: MediaQuery.of(context).size.width * 0.4,
                 child: MenuCascataWidget(selecionarTag: funcionalidadeCascata),
               ),
-              Stack(
-                alignment: Alignment.topCenter,
+              Column(
                 children: [
-                  SearchBarWidget(
-                    detectaTexto: funcionalidadeBarraPesquisa,
-                    reset: funcionalidadeResetLivros,
+                  Row(
+                    children: [
+                      SearchBarWidget(
+                        detectaTexto: funcionalidadeBarraPesquisa,
+                        reset: funcionalidadeResetLivros,
+                      ),
+                      const IconeProcessosWidget()
+                    ],
                   ),
-                  Container(
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.7,
-                    padding: const EdgeInsets.only(top: 64.0),
-                    child: Wrap(
-                        children: lista_livros_local
-                            .map((livro) => CapaLivroWidget(livro: livro))
-                            .toList()),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 32,
+                        mainAxisSpacing: 32,
+                      ),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) =>
+                          CapaLivroWidget(livro: lista_livros_local[index]),
+                      itemCount: lista_livros_local.length,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 64,
                   ),
                 ],
               ),
-              const IconeProcessosWidget()
             ],
           ),
         ],

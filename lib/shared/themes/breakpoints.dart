@@ -1,0 +1,1 @@
+var tabletWidth = 800;

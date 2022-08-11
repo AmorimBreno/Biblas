@@ -1,16 +1,12 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:projeto_biblas/database/enum/livroSituacao_enum.dart';
 import 'package:projeto_biblas/database/modules/livro/livro.dart';
 import 'package:projeto_biblas/database/modules/livro/livroUsuario.dart';
 import 'package:projeto_biblas/database/usuario/usuario_singleton.dart';
 import 'package:projeto_biblas/modules/livros/widgets/botoesPegarLivro_widget.dart';
 import 'package:projeto_biblas/modules/livros/widgets/termos_widget.dart';
-import 'package:projeto_biblas/my_app.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
 import 'package:projeto_biblas/shared/themes/text_styles.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -19,8 +15,8 @@ import '../../meus_processos/pages/processos_pagina.dart';
 
 class TermosCondicoesWidget extends StatefulWidget {
   TermosCondicoesWidget({required this.termo, required this.livro});
-  Livro livro;
-  bool termo;
+  final Livro livro;
+  final bool termo;
 
   @override
   // ignore: no_logic_in_create_state

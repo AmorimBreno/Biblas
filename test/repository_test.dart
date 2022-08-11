@@ -12,7 +12,7 @@ import 'package:projeto_biblas/database/repository_mock/repository_mock.dart';
 void main() {
   RepositoryMock repository = RepositoryMock();
   LivroUsuario teste =
-      LivroUsuario(DateTime.now(), repository.livros[1], DateTime.now(), 'oi');
+      LivroUsuario(repository.livros[1], DateTime.now(), DateTime.now(), 'oi');
   test("teste pegarLivroPorTag", () {
     expect(repository.pegarLivroPorTag(["engenharia"]),
         [repository.livros[0], repository.livros[1], repository.livros[2]]);

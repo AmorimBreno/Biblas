@@ -23,6 +23,7 @@ class TermosWidget extends StatelessWidget {
       collapsedBackgroundColor: AppColors.darkblue,
       children: [
         Container(
+          width: double.infinity,
           color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.all(8.0),

@@ -1,7 +1,8 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:projeto_biblas/modules/busca/pages/paginaBusca.dart';
 import 'package:projeto_biblas/shared/themes/app_colors.dart';
+
+import '../../../shared/themes/breakpoints.dart';
 
 class BotoesLivros extends StatefulWidget {
   const BotoesLivros({Key? key, this.texto}) : super(key: key);
@@ -27,8 +28,8 @@ class BotoesLivrosState extends State<BotoesLivros> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Container(
-        height: larguraTela < 800 ? 40 : 50,
-        width: larguraTela < 800 ? 270 : 370,
+        height: larguraTela < tabletWidth ? 40 : 50,
+        width: larguraTela < tabletWidth ? 270 : 370,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(2),
           color: AppColors.darkblue,

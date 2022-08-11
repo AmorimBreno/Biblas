@@ -22,14 +22,12 @@ class InputPesquisa extends State<SearchBarWidget> {
       width: MediaQuery.of(context).size.width * (5 / 15),
       height: MediaQuery.of(context).size.width * (5 / 150),
       color: Colors.transparent,
-      padding: const EdgeInsets.all(8),
       child: TextField(
-        style: TextStyle(fontSize: MediaQuery.of(context).size.width / (100)),
-        textAlignVertical: TextAlignVertical.top,
+        textAlignVertical: TextAlignVertical.center,
         controller: _textControler,
-        onSubmitted: widget.detectaTexto,
+        onChanged: widget.detectaTexto,
         cursorColor: AppColors.greyblue,
-        cursorWidth: 1,
+        maxLines: 1,
         textInputAction: TextInputAction.done,
         keyboardType: TextInputType.name,
         decoration: InputDecoration(
@@ -38,24 +36,27 @@ class InputPesquisa extends State<SearchBarWidget> {
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(32),
               borderSide: const BorderSide(color: Colors.black)),
-          prefix: _textControler.text.isNotEmpty
-              ? Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: IconButton(
-                    onPressed: () {
-                      _textControler.clear();
-                      widget.reset();
-                    },
-                    icon: Icon(Icons.clear,
-                        size: MediaQuery.of(context).size.width * (5 / 750)),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+            child: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: MediaQuery.of(context).size.width * (5 / 300),
+            ),
+          ),
+          suffixIcon: _textControler.text.isNotEmpty
+              ? IconButton(
+                  onPressed: () {
+                    _textControler.clear();
+                    widget.reset();
+                  },
+                  icon: const Icon(
+                    Icons.clear,
+                    size: 16,
+                    color: Colors.black,
                   ),
                 )
               : null,
-          suffixIcon: Icon(
-            Icons.search,
-            color: Colors.black,
-            size: MediaQuery.of(context).size.width * (5 / 300),
-          ),
         ),
       ),
     );

@@ -7,9 +7,10 @@ class IconeProcessosWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(
+      padding: EdgeInsets.zero,
+      icon: const Icon(
         Icons.history,
-        size: MediaQuery.of(context).size.width / 90,
+        size: 32,
       ),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
