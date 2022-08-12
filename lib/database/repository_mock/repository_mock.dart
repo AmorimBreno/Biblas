@@ -387,12 +387,11 @@ class RepositoryMock {
         'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
     var withoutDia =
         'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
-
+    String new_var = str;
     for (int i = 0; i < withDia.length; i++) {
-      str = str.replaceAll(withDia[i], withoutDia[i]);
+      new_var = new_var.replaceAll(withDia[i], withoutDia[i]);
     }
-
-    return str;
+    return new_var;
   }
 
   String _nomeAutor(String nome) {
@@ -492,8 +491,15 @@ class RepositoryMock {
   List<Livro> pegarLivroPorTitulo(String nome) {
     List<Livro> livrosComTitulo = [];
     for (Livro livro in livros) {
-      bool checker = true;     
-      for (String parteNome in _tirarPontuacao(nome.toLowerCase()).split(' ')) {
+      bool checker = true;
+
+      for (String parteNome
+          in _tirarPontuacao(_tirarAcento(nome.toLowerCase())).split(' ')) {
+        //print(_tirarPontuacao(nome.toLowerCase()).split(' '));
+        //print(_tirarAcento(livro.titulo).toLowerCase());
+        //print(!_tirarAcento(livro.titulo)
+        //    .toLowerCase()
+        //    .contains(parteNome.toLowerCase()));
         if (!_tirarAcento(livro.titulo)
             .toLowerCase()
             .contains(parteNome.toLowerCase())) {
